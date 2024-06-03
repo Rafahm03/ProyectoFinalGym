@@ -1,0 +1,50 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+header {
+    background-color: #333;
+}
+
+header i{
+    width: 100%;
+}
+
+header .logo img {
+    max-height: 50px;
+}
+
+header .btn-primary {
+    background-color: orange;
+    border: none;
+}
+
+.carousel-inner img {
+    height: 500px;
+    object-fit: cover;
+}
+
+main h2 {
+    color: orange;
+    margin-bottom: 30px;
+}
+
+.card {
+    border: none;
+}
+
+.card-title {
+    color: orange;
+}
+
+footer {
+    background-color: #333;
+}
+
+footer h5 {
+    color: orange;
+}
+
+footer .fab {
+    font-size: 24px;
+}
