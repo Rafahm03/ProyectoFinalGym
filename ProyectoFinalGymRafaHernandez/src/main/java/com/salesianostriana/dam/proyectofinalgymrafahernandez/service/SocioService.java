@@ -17,14 +17,10 @@ public class SocioService extends BaseServiceImpl<Socio, Long, SocioRepositorio>
 	private PasswordEncoder passwordEncoder;
 	
 	public void registerNewSocio(Socio socio) {
-        Socio user = new Socio();
-        user.setUsername(socio.getUsername());
-        
-        // Encriptar la contraseña antes de guardarla
-        String encodedPassword = passwordEncoder.encode(socio.getPassword());
-        user.setPassword(encodedPassword);
-
-       socioRepositorio.save(user);
-    }
+	    
+	    socio.setPassword(passwordEncoder.encode(socio.getPassword()));
+	    
+	    socioRepositorio.save(socio);
+	}
 
 }

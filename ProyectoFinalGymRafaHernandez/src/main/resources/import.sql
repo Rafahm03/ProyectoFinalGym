@@ -5,5 +5,5 @@ INSERT INTO Socio(id, username, password, ADMIN, nombre, apellidos, gmail, direc
 INSERT INTO Socio(id, username, password, ADMIN, nombre, apellidos, gmail, direccion, fecha_alta) VALUES (4, 'edu', '{bcrypt}$2a$12$13ukIN72kcsYpVuXBKl02OZJDZ32895ZyzzX7i/qJ8r8OdUAk5xXK', false, 'Eduardo', 'sisi', 'edu@gmail.com', 'C/ HogWarts', '2022-03-23');
 INSERT INTO Socio(id, username, password, ADMIN, nombre, apellidos, gmail, direccion, fecha_alta) VALUES (5, 'josel', '{bcrypt}$2a$12$bRultAt1GXSU.LwQYmazrONt3zHeES96ZkQxygd1pFpLDWqTCYzA6', false, 'José Luis', 'nose', 'pikkas@gmai.com', 'C/ El multiverso', '2023-12-04');
 
-ALTER SEQUENCE socio_seq RESTART WITH 60;
+ALTER SEQUENCE socio_seq RESTART WITH 56;
 
