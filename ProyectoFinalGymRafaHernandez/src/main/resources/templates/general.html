@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Modo Admin</title>
+	<!-- Bootstrap CSS -->
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="../static/css/general.css" th:href="@{/css/general.css}" />
+
+</head>
+
+<body>
+	<header th:replace="fragments/cabeceraAdmin :: encabezado"></header>
+	<main class="container mt-5">
+		<div class="text-center">
+			<h1>GESTIÓN DEL GYM</h1>
+		</div>
+
+
+		<div class="row mt-5">
+			<div class="col-md-6">
+				<a th:href="@{/admin/socios/lista}" class="btn btn-primary btn-block">Gestión de Socios</a>
+			</div>
+			<div class="col-md-6">
+				<a th:href="@{/admin/planes/lista}" class="btn btn-primary btn-block">Gestión de planes</a>
+			</div>
+			<div class="col-md-6">
+				<a th:href="@{/admin/clases/lista}" class="btn btn-primary btn-block">Gestión de clases colectivas</a>
+			</div>
+		</div>
+	</main>
+	<!-- Footer -->
+	<footer th:replace="fragments/footerAdmin :: footer"></footer>
+
+	<!-- Bootstrap JS (opcional, solo si necesitas funcionalidades de JavaScript de Bootstrap) -->
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

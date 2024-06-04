@@ -1,0 +1,37 @@
+
+
+.gradient-custom-2{
+    background-color: #fd7e00;
+}
+
+@media (min-width: 769px) {
+    .gradient-custom-2 {
+        border-top-right-radius: .3rem;
+        border-bottom-right-radius: .3rem;
+    }
+}
+
+.titulo{
+    text-align: center;
+}
+
+body {
+    overflow-x: hidden; /* Evita el scroll lateral */
+    background-color: #c5c5c5;
+}
+.img-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 5%;
+}
+.img-container img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+}
+.card {
+    max-width: 900px; /* Limita el ancho máximo de la tarjeta */
+    margin: auto;
+}

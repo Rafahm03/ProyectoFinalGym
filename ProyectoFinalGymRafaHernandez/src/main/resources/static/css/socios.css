@@ -1,0 +1,99 @@
+body {
+    width: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    background-color: royalblue;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    height: 15%;
+}
+
+main {
+    width: 100%;
+    padding: 25%;
+}
+
+header img {
+    border-radius: 100%;
+    padding: 3%;
+}
+
+footer {
+    background-color: slategray;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+}
+
+.logo {
+    flex: 1;
+    padding: 10px;
+}
+
+.BotonSalir {
+    margin-top: 20px;
+}
+
+.btn {
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+    padding: 10px 20px;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.btn-success {
+    background-color: #28a745;
+    border: none;
+}
+
+.btn-success:hover {
+    background-color: #218838;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    border: none;
+}
+
+.btn-danger:hover {
+    background-color: #c82333;
+}
+
+.botonadmin {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.logo-footer {
+    border-radius: 100%;
+    padding: 3%;
+}
+
+.ocultar {
+    display: none;
+}
+.mostrar {
+    display: block;
+}
