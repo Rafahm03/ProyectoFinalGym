@@ -18,7 +18,8 @@
 				<img th:src="@{/img/logo.png}" alt="Logo" width="auto">
 			</div>
 			<div class="d-flex align-items-center">
-				<button class="btn btn-primary mr-3">APÚNTATE</button>
+				<a th:href="@{/cuotas}" class="btn btn-primary mr-3">APUNTATE</a>
+				
 				<div>
 					<a th:href="@{/admin/general}" sec:authorize="hasRole('ROLE_ADMIN')">
 						<i class="fas fa-cog"></i>

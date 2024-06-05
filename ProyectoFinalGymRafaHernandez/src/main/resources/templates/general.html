@@ -12,7 +12,27 @@
 </head>
 
 <body>
-	<header th:replace="fragments/cabeceraAdmin :: encabezado"></header>
+	<header th:fragment="encabezado">
+			<div class="logo">
+				<img src="../static/img/logo.png" th:src="@{/img/logo.png}" alt="Logo del gym" class="logo"
+					width="20%" />
+			</div>
+			<div class="botonadmin">
+				<a th:href="@{/admin/general}" class="btn btn-primary">
+					Modo Administrador
+				</a>
+			</div>
+			<div class="Botonsalir">
+				<a th:href="@{/}" class="btn btn-success">IR AL INDEX</a>
+			</div>
+			<div class="btn-logout">
+				<form name="cerrar-sesion" th:action="@{/logout}" method="POST">
+					<button type="submit" class="btn btn-danger">
+						<i class="fas fa-sign-in-alt text-white mr-3"> Log Out</i>
+					</button>
+				</form>
+			</div>
+		</header>
 	<main class="container mt-5">
 		<div class="text-center">
 			<h1>GESTIÓN DEL GYM</h1>
@@ -32,7 +52,7 @@
 		</div>
 	</main>
 	<!-- Footer -->
-	<footer th:replace="fragments/footerAdmin :: footer"></footer>
+	<footer th:replace="~{fragments/footerAdmin :: footer}"></footer>
 
 	<!-- Bootstrap JS (opcional, solo si necesitas funcionalidades de JavaScript de Bootstrap) -->
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

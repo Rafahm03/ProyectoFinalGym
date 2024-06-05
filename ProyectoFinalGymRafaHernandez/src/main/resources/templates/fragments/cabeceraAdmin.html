@@ -20,12 +20,12 @@
 				width="20%" />
 		</div>
 		<div class="botonadmin">
-			<a href="#" class="btn btn-primary">
+			<a th:href="@{/admin/general}" class="btn btn-primary">
 				Modo Administrador
 			</a>
 		</div>
 		<div class="Botonsalir">
-			<a th:href="@{/index}" class="btn btn-success">IR AL INDEX</a>
+			<a th:href="@{/}" class="btn btn-success">IR AL INDEX</a>
 		</div>
 		<div class="btn-logout">
 			<form name="cerrar-sesion" th:action="@{/logout}" method="POST">

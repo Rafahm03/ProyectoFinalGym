@@ -3,15 +3,20 @@ body {
 }
 
 header {
-    background-color: #333;
+    background-color: #343a40; /* Color de fondo mejorado */
+    padding: 20px 0; /* Espaciado mejorado */
+    border-bottom: 4px solid orange; /* Línea inferior para resaltar */
 }
 
-header i{
-    width: 100%;
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 header .logo img {
-    max-height: 50px;
+    max-height: 60px; /* Tamaño mejorado */
+    height: auto;
 }
 
 header .btn-primary {
@@ -19,6 +24,26 @@ header .btn-primary {
     border: none;
 }
 
+header .btn-danger a {
+    color: white;
+    text-decoration: none;
+}
+
+header .btn-danger a:hover {
+    text-decoration: underline;
+}
+
+header .btn-danger a i {
+    margin-right: 5px;
+}
+
+header .fas {
+    font-size: 20px;
+    color: white;
+    margin-left: 20px;
+}
+
+/* Carrusel */
 .carousel-inner img {
     height: 500px;
     object-fit: cover;
@@ -29,22 +54,56 @@ main h2 {
     margin-bottom: 30px;
 }
 
+/* Tarjetas */
 .card {
     border: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Añadir sombra a las tarjetas */
+    transition: transform 0.2s; /* Efecto hover suave */
+}
+
+.card:hover {
+    transform: scale(1.05); /* Agrandar en hover */
 }
 
 .card-title {
     color: orange;
 }
 
+/* Footer */
 footer {
-    background-color: #333;
+    background-color: #343a40;
+    padding: 20px 0;
 }
 
-footer h5 {
+footer .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Asegura que los elementos se envuelvan en pantallas pequeñas */
+}
+
+footer .col-md-4 {
+    flex: 1;
+    min-width: 250px; /* Asegura un mínimo ancho para las columnas */
+    margin-bottom: 20px; /* Espacio inferior para separación en pantallas pequeñas */
+}
+
+footer .col-md-4 img {
+    max-height: 60px; /* Asegura que la imagen no ocupe demasiado espacio */
+    height: auto;
+}
+
+footer h5, footer p {
     color: orange;
 }
 
 footer .fab {
     font-size: 24px;
+    color: orange;
+    margin-right: 10px;
+    transition: color 0.2s;
+}
+
+footer .fab:hover {
+    color: white;
 }

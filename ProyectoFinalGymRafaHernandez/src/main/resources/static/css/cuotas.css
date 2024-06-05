@@ -1,0 +1,149 @@
+/* Incluye el CSS aquí */
+body {
+	background-color: #e0ecf1;
+	font-family: Arial, sans-serif;
+}
+
+header {
+	background-color: #343a40;
+	/* Color de fondo mejorado */
+	padding: 20px 0;
+	/* Espaciado mejorado */
+	border-bottom: 4px solid orange;
+	/* Línea inferior para resaltar */
+}
+
+header .container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+header .logo img {
+	max-height: 60px;
+	/* Tamaño mejorado */
+	height: auto;
+}
+
+header .btn-primary {
+	background-color: orange;
+	border: none;
+}
+
+header .btn-danger a {
+	color: white;
+	text-decoration: none;
+}
+
+header .btn-danger a:hover {
+	text-decoration: underline;
+}
+
+header .btn-danger a i {
+	margin-right: 5px;
+}
+
+header .fas {
+	font-size: 20px;
+	color: white;
+	margin-left: 20px;
+}
+
+.card-deck .card {
+	border-radius: 10px;
+	border: none;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+	background-color: #f8f9fa;
+	border-bottom: none;
+	font-weight: bold;
+	text-align: center;
+	font-size: 1.2rem;
+}
+
+.card-body {
+	text-align: center;
+}
+
+.card-body p {
+	margin: 5px 0;
+}
+
+.card-body .price {
+	font-size: 2rem;
+	font-weight: bold;
+}
+
+.btn-subscribe {
+	background-color:#343a40;
+	border: none;
+	color: white;
+	font-weight: bold;
+	padding: 10px 20px;
+	border-radius: 5px;
+	transition: background-color 0.3s;
+}
+
+.btn-subscribe:hover {
+	background-color: #e0a800;
+}
+
+.ultimate {
+	background-color:goldenrod;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	color: white;
+}
+
+.ultimate .card-header {
+	background-color: #ffc107;
+	color: white;
+}
+
+.ultimate .btn-subscribe {
+	background-color:#343a40;
+}
+
+.ultimate .btn-subscribe:hover {
+	background-color: #e0a800;
+}
+
+footer {
+    background-color: #343a40;
+    padding: 20px 0;
+}
+
+footer .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Asegura que los elementos se envuelvan en pantallas pequeñas */
+}
+
+footer .col-md-4 {
+    flex: 1;
+    min-width: 250px; /* Asegura un mínimo ancho para las columnas */
+    margin-bottom: 20px; /* Espacio inferior para separación en pantallas pequeñas */
+}
+
+footer .col-md-4 img {
+    max-height: 60px; /* Asegura que la imagen no ocupe demasiado espacio */
+    height: auto;
+}
+
+footer h5, footer p {
+    color: orange;
+}
+
+footer .fab {
+    font-size: 24px;
+    color: orange;
+    margin-right: 10px;
+    transition: color 0.2s;
+}
+
+footer .fab:hover {
+    color: white;
+}

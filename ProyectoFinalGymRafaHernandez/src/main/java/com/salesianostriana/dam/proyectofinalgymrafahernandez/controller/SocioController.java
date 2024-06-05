@@ -60,7 +60,7 @@ public class SocioController {
 		@PostMapping("/admin/socio/editar/submit")
 		public String editSocioSubmit(@ModelAttribute("socio") Socio socio) {
 			socioService.edit(socio);
-			return "redirect:/admin/clientes/lista";
+			return "redirect:/admin/socios/lista";
 		}
 		
 	
