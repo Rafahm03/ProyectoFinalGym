@@ -43,13 +43,10 @@ public class MainController {
 			
 			return "redirect:/login";
 		}
-<<<<<<< HEAD
 		
 		@GetMapping("/cuotas")
 		public String mostrarPaginaCuotas(Model model) {
 			return "cuotas";
 		}
-=======
->>>>>>> 8d600514ceba6530efa76369b3f084523c28dbc4
 
 }

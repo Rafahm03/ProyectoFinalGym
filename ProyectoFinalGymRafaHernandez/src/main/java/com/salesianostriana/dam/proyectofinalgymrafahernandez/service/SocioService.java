@@ -1,10 +1,7 @@
 package com.salesianostriana.dam.proyectofinalgymrafahernandez.service;
 
-<<<<<<< HEAD
 import java.util.List;
 
-=======
->>>>>>> 8d600514ceba6530efa76369b3f084523c28dbc4
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -27,13 +24,10 @@ public class SocioService extends BaseServiceImpl<Socio, Long, SocioRepositorio>
 	    
 	    socioRepositorio.save(socio);
 	}
-<<<<<<< HEAD
 	
 	public List<Socio> findByNombreYApellidos(String nombre, String apellidos) {
 		return socioRepositorio.findByNombreContainingIgnoreCaseOrApellidosContainingIgnoreCase(nombre, apellidos);
 	}
 	
-=======
->>>>>>> 8d600514ceba6530efa76369b3f084523c28dbc4
 
 }
