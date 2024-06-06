@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
+<<<<<<< HEAD
 
 <head>
 	<meta charset="UTF-8">
@@ -160,3 +161,140 @@
 </body>
 
 </html>
+=======
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Principal Gimnasio</title>
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+	   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link th:href="@{/css/index.css}" rel="stylesheet">
+</head>
+<body>
+    <!-- Cabecera -->
+    <header class="bg-dark text-white">
+        <div class="container d-flex justify-content-between align-items-center py-3">
+            <div class="logo">
+                <img th:src="@{/img/logo.png}" alt="Logo" width="auto">
+            </div>
+            <div class="d-flex align-items-center">
+                <button class="btn btn-primary mr-3">APÚNTATE</button>
+					<a href="@{/admin/general}" sec:authorize="hasRole('ROLE_ADMIN')">
+				 <i class="fas fa-cog"></i>
+					</a>
+                <button class="btn btn-danger mr-3">
+					<form name="cerrar-sesion" th:action="@{/logout}" method="POST"></form>
+					<a th:href="@{/logout}" class="fs-4 text-dark">	<i class="fas fa-sign-in-alt text-white mr-3"> Log Out</i></a>
+                   
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Carrusel -->
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+        </ol>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img class="d-block w-100" src="https://img.freepik.com/foto-gratis/mancuernas-primer-plano-entorno-gimnasio-detras_91128-4625.jpg" alt="First slide">
+            </div>
+            <div class="carousel-item">
+                <img class="d-block w-100" src="https://img.freepik.com/foto-gratis/gimnasio-equipo-ciclismo-indoor_23-2149270210.jpg" alt="Second slide">
+            </div>
+            <div class="carousel-item">
+                <img class="d-block w-100" src="https://img.freepik.com/foto-gratis/pesos-ejercicio-pesas-fuerte-atletica_1139-709.jpg" alt="Third slide">
+            </div>
+            <div class="carousel-item">
+                <img class="d-block w-100" src="https://media.gettyimages.com/id/874700028/es/foto/me-dan-alta-cinco-hemos-hecho-un-gran-entrenamiento.jpg" alt="Fourth slide">
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+
+    <!-- Contenedor principal -->
+    <main class="container my-5">
+        <h2 class="text-center">Nuestras Instalaciones</h2>
+        <div class="d-flex justify-content-center my-4">
+            <img src="https://img.freepik.com/foto-gratis/bodegon-equipamiento-gimnasio_23-2148197730.jpg" class="mx-2" alt="Instalación 1" height="200">
+            <img src="https://img.freepik.com/foto-gratis/atractiva-chica-sonriente-onn-bicicleta-estatica-moderno-espacioso-gimnasio_496169-2797.jpg" class="mx-2" alt="Instalación 2" height="200">
+            <img src="https://img.freepik.com/foto-gratis/mujer-joven-atractiva-su-entrenador-corriendo-cinta-gimnasio_496169-2730.jpg" class="mx-2" alt="Instalación 3" height="200">
+        </div>
+
+        <h2 class="text-center">Apúntate también a nuestras clases Colectivas</h2>
+        <div class="row my-4">
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="https://img.freepik.com/foto-gratis/personas-activas-que-participan-juntas-clase-zumba_23-2149074925.jpg" class="card-img-top" alt="Zumba">
+                    <div class="card-body">
+                        <h5 class="card-title">Zumba</h5>
+                        <p class="card-text">Baila y ejercítate al ritmo de la música latina con nuestras clases de Zumba.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img th:src="@{https://img.freepik.com/foto-gratis/hombres-mujeres-gimnasio-montando-bicicleta-juntos-generados-felizmente-ia_188544-10868.jpg}" class="card-img-top" alt="Spinning">
+                    <div class="card-body">
+                        <h5 class="card-title">Spinning</h5>
+                        <p class="card-text">Disfruta de nuestras sesiones de spinning y mejora tu resistencia cardiovascular.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="https://img.freepik.com/foto-gratis/grupo-jovenes-entrenando-gimnasio-interior-manteniendo-estilo-vida-deportivo_155003-45875.jpg" class="card-img-top" alt="Crossfit">
+                    <div class="card-body">
+                        <h5 class="card-title">Crossfit</h5>
+                        <p class="card-text">Desafía tus límites con nuestras intensas clases de crossfit.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-light p-4 my-4">
+            <h3>¿Por qué deberías hacerte socio?</h3>
+            <p>En nuestro gimnasio, encontrarás las mejores instalaciones, el equipo más avanzado y una comunidad de personas que te apoyarán para alcanzar tus objetivos. ¡Únete hoy y transforma tu vida!</p>
+			</div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <img th:src="@{/img/logo.png}" alt="Logo" width="auto">
+                </div>
+                <div class="col-md-4">
+                    <h5>Síguenos en nuestras redes sociales</h5>
+                    <i class="fab fa-instagram mx-2"></i>
+                    <i class="fab fa-twitter mx-2"></i>
+                    <i class="fab fa-facebook mx-2"></i>
+                </div>
+                <div class="col-md-4">
+                    <h5>Derechos de privacidad</h5>
+                    <p>Todos los derechos reservados &copy; 2024 Gimnasio XYZ. Política de privacidad y términos de uso.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+	<!-- Scripts de Bootstrap -->
+	   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+	   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+	   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	   <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</body>
+</html>
+>>>>>>> 8d600514ceba6530efa76369b3f084523c28dbc4
