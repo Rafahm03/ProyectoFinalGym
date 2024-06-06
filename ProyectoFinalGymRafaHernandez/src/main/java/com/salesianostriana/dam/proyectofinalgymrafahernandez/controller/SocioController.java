@@ -63,5 +63,16 @@ public class SocioController {
 			return "redirect:/admin/socios/lista";
 		}
 		
-	
+		@GetMapping("/admin/socio/borrar/{id}")
+		public String borrarSocio(@PathVariable("id") long id, Model model) {
+			Optional<Socio> aBorrarOp = socioService.findById(id);
+			
+			if(aBorrarOp.isPresent()) {
+				Socio aBorrar= aBorrarOp.get();
+				model.addAttribute("socio", aBorrar);
+				socioService.delete(aBorrar);
+		}
+			return "redirect:/admin/socios/lista";
+
+	}
 }
