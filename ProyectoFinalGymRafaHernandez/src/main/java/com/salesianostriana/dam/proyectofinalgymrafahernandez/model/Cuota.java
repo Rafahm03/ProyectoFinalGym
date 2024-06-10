@@ -1,4 +1,5 @@
 package com.salesianostriana.dam.proyectofinalgymrafahernandez.model;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -6,8 +7,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToMany;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -30,22 +31,12 @@ public class Cuota {
 
     private double precio;
 
-    @ManyToOne
-    private Plan plan;
-
-    @ManyToMany(mappedBy = "cuotas", fetch = FetchType.EAGER)
-    @Builder.Default
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
+    @OneToMany(mappedBy = "cuota", fetch = FetchType.EAGER)
+    @Builder.Default
     private List<Socio> socios = new ArrayList<>();
 
-    public void addToPlan(Plan p) {
-        p.getCuotas().add(this);
-        this.plan = p;
-    }
-
-    public void removeFromPlan(Plan p) {
-        p.getCuotas().remove(this);
-        this.plan = null;
-    }
+    @OneToOne(mappedBy = "cuota", fetch = FetchType.EAGER)
+    private Plan plan;
 }

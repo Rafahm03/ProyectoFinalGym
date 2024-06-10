@@ -19,6 +19,7 @@ public class SocioController {
 
 	 @Autowired
 	    private SocioService socioService;
+	 
 	    
 	    @GetMapping("/admin/socios/lista")
 	    public String mostrarSocios(Model model) {

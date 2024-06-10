@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planes de Suscripción</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link th:href="@{/css/cuotas.css}" rel="stylesheet">
+</head>
+
+<body>
+    <header class="bg-dark text-white">
+        <div class="container d-flex justify-content-between align-items-center py-3">
+            <div class="logo">
+                <img th:src="@{/img/logo.png}" alt="Logo" width="auto">
+            </div>
+            <div class="d-flex align-items-center">
+                <a th:href="@{/planes}" class="btn btn-primary mr-3">APÚNTATE</a>
+                <div class="Botonsalir">
+                    <a th:href="@{/}" class="btn btn-success">IR AL INDEX</a>
+                </div>
+                <div>
+                    <a th:href="@{/admin/general}" sec:authorize="hasRole('ROLE_ADMIN')">
+                        <i class="fas fa-cog"></i>
+                    </a>
+                </div>
+                <form name="cerrar-sesion" th:action="@{/logout}" method="POST">
+                    <button type="submit" class="btn btn-danger mr-3">
+                        <i class="fas fa-sign-in-alt text-white mr-3">Log Out</i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </header>
+    <main class="container my-5">
+        <h1><strong>Nuestros Planes</strong> - Dale un Plus a tu Suscripción!</h1>
+        <div class="card-deck">
+            <div class="card" th:each="plan : ${planes}">
+                <div class="card-header" th:text="${plan.nombre}"></div>
+                <div class="card-body">
+                    <p class="price" th:text="${plan.precio} + '€'"></p>
+                    <p th:text="'Descripción: ' + ${plan.descripcion}"></p>
+					<form th:action="@{/seleccionarPlan}" method="post">
+					    <input type="hidden" name="planId" th:value="${plan.id}"/>
+					    <button type="submit" class="btn btn-primary">ELEGIR ESTE PLAN</button>
+					</form> 
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <img th:src="@{/img/logo.png}" alt="Logo" width="auto">
+                </div>
+                <div class="col-md-4">
+                    <h5>Síguenos en nuestras redes sociales</h5>
+                    <i class="fab fa-instagram mx-2"></i>
+                    <i class="fab fa-twitter mx-2"></i>
+                    <i class="fab fa-facebook mx-2"></i>
+                </div>
+                <div class="col-md-4">
+                    <h5>Derechos de privacidad</h5>
+                    <p>Todos los derechos reservados &copy; 2024 Gimnasio XYZ. Política de privacidad y términos de uso.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

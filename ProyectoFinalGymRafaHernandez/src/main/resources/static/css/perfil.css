@@ -1,0 +1,26 @@
+/* Estilos personalizados para la página de perfil */
+body {
+    background-color: #f8f9fa;
+}
+
+.card {
+    margin: 0 auto;
+    max-width: 600px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.card-title {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.card-body {
+    font-size: 18px;
+}
+
+h4 {
+    margin-top: 20px;
+}

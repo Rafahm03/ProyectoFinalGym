@@ -1,6 +1,6 @@
 package com.salesianostriana.dam.proyectofinalgymrafahernandez.model;
+
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
@@ -10,13 +10,10 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
 import jakarta.persistence.ForeignKey;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -45,14 +42,9 @@ public class Socio implements UserDetails {
     @JoinColumn(foreignKey = @ForeignKey(name = "fk_socio_plan"))
     private Plan plan;
 
-    @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(
-        name = "Suscripcion",
-        joinColumns = @JoinColumn(name = "socio_id"),
-        inverseJoinColumns = @JoinColumn(name = "cuota_id")
-    )
-    @Builder.Default
-    private List<Cuota> cuotas = new ArrayList<>();
+    @ManyToOne
+    @JoinColumn(foreignKey = @ForeignKey(name = "fk_socio_cuota"))
+    private Cuota cuota;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -81,10 +73,9 @@ public class Socio implements UserDetails {
         return true;
     }
 
-    public void addToPlan(Plan plan) {
+    public void setPlan(Plan plan) {
         this.plan = plan;
-        plan.getSocios().remove(this);
-        this.plan = null;
+        plan.getSocios().add(this);
     }
 
     public void removeFromPlan(Plan plan) {
@@ -92,14 +83,13 @@ public class Socio implements UserDetails {
         this.plan = null;
     }
 
-    public void addCuota(Cuota c) {
-        this.cuotas.add(c);
-        c.getSocios().add(this);
+    public void setCuota(Cuota cuota) {
+        this.cuota = cuota;
+        cuota.getSocios().add(this);
     }
 
-    public void removeCuota(Cuota c) {
-        c.getSocios().remove(this);
-        this.cuotas.remove(c);
+    public void removeCuota(Cuota cuota) {
+        cuota.getSocios().remove(this);
+        this.cuota = null;
     }
 }
-
