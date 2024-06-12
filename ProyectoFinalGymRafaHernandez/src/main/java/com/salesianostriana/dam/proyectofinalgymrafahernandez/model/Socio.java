@@ -15,6 +15,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -45,6 +46,10 @@ public class Socio implements UserDetails {
     @ManyToOne
     @JoinColumn(foreignKey = @ForeignKey(name = "fk_socio_cuota"))
     private Cuota cuota;
+    
+    @OneToMany(mappedBy = "socio")
+    private List<Reserva> reservas;
+
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
