@@ -7,6 +7,8 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -22,8 +24,6 @@ public class CuotaControler {
 
 	@Autowired
 	private SocioService socioService;
-	
-	
 
 	@GetMapping("/cuotas")
 	public String mostrarCuotas(Model model) {
@@ -32,19 +32,74 @@ public class CuotaControler {
 	}
 
 	@PostMapping("/seleccionarCuota")
-	public String seleccionarCuota(@AuthenticationPrincipal Socio socio, @RequestParam("cuotaId") Long id, Model model) {
-	    Optional<Cuota> optionalCuota = cuotaService.findById(id);
-	    if (optionalCuota.isPresent()) {
-	        Cuota cuota = optionalCuota.get();
-	        socio.setCuota(cuota);
-	        socioService.save(socio);
-	        return "redirect:/planes";
-	    } else {
-	        model.addAttribute("error", "Cuota no encontrada");
-	        return "error";
-	    }
+	public String seleccionarCuota(@AuthenticationPrincipal Socio socio, @RequestParam("cuotaId") Long id,
+			Model model) {
+		Optional<Cuota> optionalCuota = cuotaService.findById(id);
+		if (optionalCuota.isPresent()) {
+			Cuota cuota = optionalCuota.get();
+			socio.setCuota(cuota);
+			socioService.save(socio);
+			return "redirect:/planes";
+		} else {
+			model.addAttribute("error", "Cuota no encontrada");
+			return "error";
+		}
 	}
 
-	
-	
+	@GetMapping("/admin/cuotas/lista")
+	public String mostrarSocios(Model model) {
+
+		model.addAttribute("cuotas", cuotaService.findAll());
+
+		return "cuotasAdmin";
+
+	}
+
+	@GetMapping("/admin/cuota/nuevo")
+	public String mostrarFormularioCuota(Model model) {
+		model.addAttribute("cuota", new Cuota());
+
+		return "formularioCuotaAdmin";
+	}
+
+	@PostMapping("admin/cuota/nuevo/submit")
+	public String guardarCuota(@ModelAttribute("cuota") Cuota cuota, Model model) {
+		cuotaService.save(cuota);
+		return "redirect:/admin/cuotas/lista";//
+	}
+
+	@GetMapping("/admin/cuota/editar/{id}")
+	public String mostrarFormularioEdicion(@PathVariable("id") long id, Model model) {
+		Optional<Cuota> aEditarOptional = cuotaService.findById(id);
+
+		if (aEditarOptional.isPresent()) {
+			Cuota aEditar = aEditarOptional.get();
+			model.addAttribute("cuota", aEditar);
+			return "formularioCuotaAdmin";
+		} else {
+			return "redirect:/admin/cuotas/lista";
+		}
+	}
+
+	@PostMapping("/admin/cuota/editar/submit")
+	public String editCuotaSubmit(@ModelAttribute("cuota") Cuota cuota) {
+		cuotaService.edit(cuota);
+		return "redirect:/admin/cuotas/lista";
+	}
+
+	@GetMapping("/admin/cuota/borrar/{id}")
+	public String borrarCuota(@PathVariable("id") long id, Model model) {
+		Optional<Cuota> aBorrarOp = cuotaService.findById(id);
+
+		if (aBorrarOp.isPresent()) {
+			Cuota aBorrar = aBorrarOp.get();
+			model.addAttribute("cuota", aBorrar);
+			cuotaService.delete(aBorrar);
+		}
+		return "redirect:/admin/cuotas/lista";
+
+	}//Hay que modificar el método para que si intenta borrar una cuota con un socio asociado,
+	//salte una excepción.
+
+
 }
