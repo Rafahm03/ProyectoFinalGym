@@ -13,26 +13,25 @@
 
 <body>
 	<header th:fragment="encabezado">
-			<div class="logo">
-				<img src="../static/img/logo.png" th:src="@{/img/logo.png}" alt="Logo del gym" class="logo"
-					width="20%" />
-			</div>
-			<div class="botonadmin">
-				<a th:href="@{/admin/general}" class="btn btn-primary">
-					Modo Administrador
-				</a>
-			</div>
-			<div class="Botonsalir">
-				<a th:href="@{/}" class="btn btn-success">IR AL INDEX</a>
-			</div>
-			<div class="btn-logout">
-				<form name="cerrar-sesion" th:action="@{/logout}" method="POST">
-					<button type="submit" class="btn btn-danger">
-						<i class="fas fa-sign-in-alt text-white mr-3"> Log Out</i>
-					</button>
-				</form>
-			</div>
-		</header>
+		<div class="logo">
+			<img src="../static/img/logo.png" th:src="@{/img/logo.png}" alt="Logo del gym" class="logo" width="20%" />
+		</div>
+		<div class="botonadmin">
+			<a th:href="@{/admin/general}" class="btn btn-primary">
+				Modo Administrador
+			</a>
+		</div>
+		<div class="Botonsalir">
+			<a th:href="@{/}" class="btn btn-success">IR AL INDEX</a>
+		</div>
+		<div class="btn-logout">
+			<form name="cerrar-sesion" th:action="@{/logout}" method="POST">
+				<button type="submit" class="btn btn-danger">
+					<i class="fas fa-sign-in-alt text-white mr-3"> Log Out</i>
+				</button>
+			</form>
+		</div>
+	</header>
 	<main class="container mt-5">
 		<div class="text-center">
 			<h1>GESTIÓN DEL GYM</h1>
@@ -45,6 +44,9 @@
 			</div>
 			<div class="col-md-6">
 				<a th:href="@{/admin/cuotas/lista}" class="btn btn-primary btn-block">Gestión de Cuotas</a>
+			</div>
+			<div class="col-md-6">
+				<a th:href="@{/admin/planes/lista}" class="btn btn-primary btn-block">Gestión de Planes</a>
 			</div>
 			<div class="col-md-6">
 				<a th:href="@{/admin/clases/lista}" class="btn btn-primary btn-block">Gestión de clases colectivas</a>

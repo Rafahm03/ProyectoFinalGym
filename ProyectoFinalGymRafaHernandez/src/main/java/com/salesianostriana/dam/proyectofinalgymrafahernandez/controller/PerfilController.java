@@ -8,6 +8,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
+import com.salesianostriana.dam.proyectofinalgymrafahernandez.model.Cuota;
+import com.salesianostriana.dam.proyectofinalgymrafahernandez.model.Plan;
 import com.salesianostriana.dam.proyectofinalgymrafahernandez.model.Socio;
 import com.salesianostriana.dam.proyectofinalgymrafahernandez.service.CuotaService;
 import com.salesianostriana.dam.proyectofinalgymrafahernandez.service.PlanService;
@@ -33,23 +35,28 @@ public class PerfilController {
 
 	    if (socioOpt.isPresent()) {
 	        Socio socio = socioOpt.get();
-	        String cuota = Optional.ofNullable(socio.getCuota())
-	                               .map(c -> "Cuota: " + c.getNombre() + " -> Precio: " + c.getPrecio())
-	                               .orElse("No tiene cuota asignada.");
+	        Cuota cuota = socio.getCuota();
+	        Plan plan = socio.getPlan();
 
-	        String plan = Optional.ofNullable(socio.getPlan())
-	                              .map(p -> "Plan: " + p.getNombre() + " -> Precio: " + p.getPrecio())
-	                              .orElse("No tiene plan asignado.");
+	        String cuotaInfo = (cuota != null) ? 
+	            "Cuota: " + cuota.getNombre() + " -> Precio: " + cuota.getPrecio() :
+	            "No tiene cuota asignada.";
+
+	        String planInfo = (plan != null) ? 
+	            "Plan: " + plan.getNombre() + " -> Precio: " + plan.getPrecio() :
+	            "No tiene plan asignado.";
 
 	        model.addAttribute("socio", socio);
-	        model.addAttribute("cuota", cuota);
-	        model.addAttribute("plan", plan);   
+	        model.addAttribute("cuota", cuotaInfo);
+	        model.addAttribute("plan", planInfo);   
 
 	        return "perfil"; 
 	    } else {
-	        return "Socio no encontrado.";
+	        model.addAttribute("error", "Socio no encontrado.");
+	        return "error"; 
 	    }
 	}
+
 
 
 
