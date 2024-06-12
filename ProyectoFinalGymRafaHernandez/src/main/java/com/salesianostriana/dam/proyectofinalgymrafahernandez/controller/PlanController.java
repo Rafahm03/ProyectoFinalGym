@@ -41,7 +41,6 @@ public class PlanController {
 	        Plan plan = optionalPlan.get();
 	        socio.setPlan(plan);
 	        socioService.save(socio);
-	        model.addAttribute("id", socio.getId()); // Agregar el id al modelo
 	        return "redirect:/suscripcion/" + socio.getId(); // Redirigir con el id del socio en la URL
 	    } else {
 	        model.addAttribute("error", "Plan no encontrado");

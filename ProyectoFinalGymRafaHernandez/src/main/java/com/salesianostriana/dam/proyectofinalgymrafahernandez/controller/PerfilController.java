@@ -28,7 +28,7 @@ public class PerfilController {
 	private CuotaService cuotaService;
 	
 	@GetMapping("/suscripcion/{id}")
-	public String mostrarSuscripcion(@PathVariable Long id, Model model) {
+	public String mostrarSuscripcion(@PathVariable("id") Long id, Model model) {
 	    Optional<Socio> socioOpt = socioService.findById(id);
 
 	    if (socioOpt.isPresent()) {
@@ -50,6 +50,7 @@ public class PerfilController {
 	        return "Socio no encontrado.";
 	    }
 	}
+
 
 
 
