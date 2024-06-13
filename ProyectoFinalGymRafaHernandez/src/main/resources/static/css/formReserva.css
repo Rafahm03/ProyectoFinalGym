@@ -1,0 +1,141 @@
+
+header {
+    background-color: #343a40;
+    padding: 20px 0;
+    border-bottom: 4px solid orange;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .logo img {
+    max-height: 60px;
+    height: auto;
+}
+
+header .btn-primary {
+    background-color: orange;
+    border: none;
+}
+
+header .btn-danger a {
+    color: white;
+    text-decoration: none;
+}
+
+header .btn-danger a:hover {
+    text-decoration: underline;
+}
+
+header .btn-danger a i {
+    margin-right: 5px;
+}
+
+header .fas {
+    font-size: 20px;
+    color: white;
+    margin-left: 20px;
+}
+
+h2 {
+    color: #333;
+}
+
+form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    margin: 0 auto;
+}
+
+label {
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="datetime-local"],
+button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type="datetime-local"] {
+    /* Adjusting datetime-local input appearance */
+    -webkit-appearance: textfield;
+    -moz-appearance: textfield;
+    appearance: textfield;
+    padding-right: 12px;
+    width: calc(100% - 22px);
+}
+
+input[type="datetime-local"]::-webkit-inner-spin-button,
+input[type="datetime-local"]::-webkit-outer-spin-button {
+    /* Hiding datetime-local input spinner */
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+.error-message {
+    color: red;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+footer {
+    background-color: #343a40;
+    padding: 20px 0;
+}
+
+footer .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+footer .col-md-4 {
+    flex: 1;
+    min-width: 250px;
+    margin-bottom: 20px;
+}
+
+footer .col-md-4 img {
+    max-height: 60px;
+    height: auto;
+}
+
+footer h5,
+footer p {
+    color: orange;
+}
+
+footer .fab {
+    font-size: 24px;
+    color: orange;
+    margin-right: 10px;
+    transition: color 0.2s;
+}
+
+footer .fab:hover {
+    color: white;
+}

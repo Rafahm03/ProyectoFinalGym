@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulario de Reserva</title>
+    <link th:href="@{/css/formReserva.css}" rel="stylesheet">
+</head>
+<body>
+    <!-- Encabezado -->
+	<header class="bg-dark text-white">
+	    <div class="container d-flex justify-content-between align-items-center py-3">
+	        <div class="logo">
+	            <img th:src="@{/img/logo.png}" alt="Logo" width="auto">
+	        </div>
+	        <div class="d-flex align-items-center">
+	            <a th:href="@{/cuotas}" class="btn btn-primary mr-3">APUNTATE</a>
+	            <div class="Botonsalir">
+	                <!-- Eliminamos el formulario vacío y colocamos el botón directamente -->
+	                <a th:href="@{/logout}" class="btn btn-danger">
+	                    <i class="fas fa-sign-in-alt text-white mr-3"></i> Log Out
+	                </a>
+	            </div>
+	            <div>
+	                <a th:href="@{/admin/general}" sec:authorize="hasRole('ROLE_ADMIN')">
+	                    <i class="fas fa-cog"></i>
+	                </a>
+	            </div>
+	        </div>
+	    </div>
+	</header>
+	
+	<main>
+		   <div class="container mt-5">
+		       <h2>Formulario de Reserva</h2>
+			<form action="/reservarclase/submit" method="post" th:object="${reserva}">
+			    <label>Nombre del Solicitante:</label><br>
+			    <input type="text" th:field="*{nombreSolicitante}" required><br><br>
+			
+			    <label>Fecha de Reserva:</label><br>
+			    <input type="datetime-local" th:field="*{reservaPK.fecha_reserva}" required><br><br>
+			
+			    <input type="hidden" name="clasesId" th:value="${reserva.reservaPK.clases_id}">
+			
+			    <button type="submit" class="btn btn-primary">Reservar Clase</button>
+			</form>
+		       
+		       <div th:if="${error}" style="color: red;">
+		           <p th:text="${error}"></p>
+		       </div>
+		   </div>
+	</main>
+
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <img th:src="@{/img/logo.png}" alt="Logo" width="auto">
+                </div>
+                <div class="col-md-4">
+                    <h5>Síguenos en nuestras redes sociales</h5>
+                    <i class="fab fa-instagram mx-2"></i>
+                    <i class="fab fa-twitter mx-2"></i>
+                    <i class="fab fa-facebook mx-2"></i>
+                </div>
+                <div class="col-md-4">
+                    <h5>Derechos de privacidad</h5>
+                    <p>Todos los derechos reservados &copy; 2024 Gimnasio XYZ. Política de privacidad y términos de uso.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts opcionales -->
+    <!-- Coloca aquí tus scripts opcionales si los necesitas -->
+</body>
+</html>
+

@@ -32,12 +32,12 @@ INSERT INTO clases (id, capacidad_maxima, img, dias, nombre, descripcion) VALUES
 ALTER SEQUENCE clases_seq RESTART WITH 54;
 
 -- INSERT INTO DE CLASE RESERVA
-INSERT INTO reserva (clases_id, fecha_reserva, socio_id) VALUES (1,  '2024-06-07 13:15:00', 1);
-INSERT INTO reserva (clases_id, fecha_reserva, socio_id) VALUES (2,  '2024-06-07 14:15:00', 2);
-INSERT INTO reserva (clases_id, fecha_reserva, socio_id) VALUES (3,  '2024-06-07 15:15:00', 1);
-INSERT INTO reserva (clases_id, fecha_reserva, socio_id) VALUES (1,  '2024-06-08 13:15:00', 3);
-INSERT INTO reserva (clases_id, fecha_reserva, socio_id) VALUES (2,  '2024-06-08 14:15:00', 1);
-INSERT INTO reserva (clases_id, fecha_reserva, socio_id) VALUES (3,  '2024-06-08 15:15:00', 3);
-INSERT INTO reserva (clases_id, fecha_reserva, socio_id) VALUES (1,  '2024-06-09 13:15:00', 2);
-INSERT INTO reserva (clases_id, fecha_reserva, socio_id) VALUES (2,  '2024-06-09 14:15:00', 1);
-INSERT INTO reserva (clases_id, fecha_reserva, socio_id) VALUES (3,  '2024-06-09 15:15:00', 3);
+INSERT INTO reserva (clases_id, fecha_reserva, socio_id, nombre_solicitante) VALUES (1,  '2024-06-07 13:15:00', 1, 'Rafa');
+INSERT INTO reserva (clases_id, fecha_reserva, socio_id, nombre_solicitante) VALUES (2,  '2024-06-07 14:15:00', 2, 'User');
+INSERT INTO reserva (clases_id, fecha_reserva, socio_id, nombre_solicitante) VALUES (3,  '2024-06-07 15:15:00', 5, 'jose');
+INSERT INTO reserva (clases_id, fecha_reserva, socio_id, nombre_solicitante) VALUES (1,  '2024-06-08 13:15:00', 4, 'Edu');
+INSERT INTO reserva (clases_id, fecha_reserva, socio_id, nombre_solicitante) VALUES (2,  '2024-06-08 14:15:00', 3, 'Rafa');
+INSERT INTO reserva (clases_id, fecha_reserva, socio_id, nombre_solicitante) VALUES (3,  '2024-06-08 15:15:00', 4, 'Edu');
+INSERT INTO reserva (clases_id, fecha_reserva, socio_id, nombre_solicitante) VALUES (1,  '2024-06-09 13:15:00', 2, 'User');
+INSERT INTO reserva (clases_id, fecha_reserva, socio_id, nombre_solicitante) VALUES (2,  '2024-06-09 14:15:00', 1, 'Rafa');
+INSERT INTO reserva (clases_id, fecha_reserva, socio_id, nombre_solicitante) VALUES (3,  '2024-06-09 15:15:00', 3, 'Rafa');

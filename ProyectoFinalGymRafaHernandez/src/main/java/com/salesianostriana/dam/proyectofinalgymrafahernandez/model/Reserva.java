@@ -1,5 +1,8 @@
 package com.salesianostriana.dam.proyectofinalgymrafahernandez.model;
 
+
+import java.time.LocalDateTime;
+
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;
@@ -15,12 +18,12 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class Reserva {
 
-
 	@EmbeddedId
 	private ReservaPK reservaPK = new ReservaPK();
 	
+	private String nombreSolicitante;
 
-    @ManyToOne
+	@ManyToOne
 	@MapsId("socio_id")
 	@JoinColumn(name = "socio_id")
 	private Socio socio;
@@ -29,10 +32,7 @@ public class Reserva {
 	@MapsId("clases_id")
 	@JoinColumn(name = "clases_id")
 	private Clases clases;
-    
-	
-	
-	
+
 	public void addToSocio(Socio s) {
 		s.getReservas().add(this);
 		this.socio = s;
@@ -42,4 +42,13 @@ public class Reserva {
 		s.getReservas().remove(this);
 		this.socio = null;
 	}
+	
+	public LocalDateTime getFechaReserva() {
+        return this.reservaPK.getFecha_reserva();
+    }
+
+    public void setFechaReserva(LocalDateTime fecha_reserva) {
+        this.reservaPK.setFecha_reserva(fecha_reserva);
+    }
+
 }
