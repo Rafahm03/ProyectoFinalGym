@@ -1,16 +1,11 @@
 package com.salesianostriana.dam.proyectofinalgymrafahernandez.model;
 
-import java.time.LocalDateTime;
-
-import org.springframework.format.annotation.DateTimeFormat;
-
+import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.MapsId;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -18,20 +13,33 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
 public class Reserva {
 
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+	@EmbeddedId
+	private ReservaPK reservaPK = new ReservaPK();
+	
 
     @ManyToOne
-    private Socio socio;
+	@MapsId("socio_id")
+	@JoinColumn(name = "socio_id")
+	private Socio socio;
 
-    @ManyToOne
-    private ClaseColectiva claseColectiva;
+	@ManyToOne
+	@MapsId("clases_id")
+	@JoinColumn(name = "clases_id")
+	private Clases clases;
+    
+	
+	
+	
+	public void addToSocio(Socio s) {
+		s.getReservas().add(this);
+		this.socio = s;
+	}
 
-    @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
-    private LocalDateTime fechaReserva;
+	public void removeFromSocio(Socio s) {
+		s.getReservas().remove(this);
+		this.socio = null;
+	}
 }

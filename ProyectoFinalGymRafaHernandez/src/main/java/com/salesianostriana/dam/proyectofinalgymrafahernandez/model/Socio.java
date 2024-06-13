@@ -1,6 +1,7 @@
 package com.salesianostriana.dam.proyectofinalgymrafahernandez.model;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
@@ -10,6 +11,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.ForeignKey;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -19,7 +21,9 @@ import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @Entity
 @Data
@@ -47,9 +51,11 @@ public class Socio implements UserDetails {
     @JoinColumn(foreignKey = @ForeignKey(name = "fk_socio_cuota"))
     private Cuota cuota;
     
-    @OneToMany(mappedBy = "socio")
-    private List<Reserva> reservas;
-
+    @OneToMany(mappedBy="socio", fetch = FetchType.EAGER)
+	@Builder.Default
+	@EqualsAndHashCode.Exclude
+	@ToString.Exclude
+	private List<Reserva> reservas = new ArrayList<>();
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

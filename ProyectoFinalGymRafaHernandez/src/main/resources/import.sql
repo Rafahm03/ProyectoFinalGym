@@ -1,3 +1,6 @@
+-- ALTER TABLE PARA AJUSTAR LA LONGITUD DE DESCRIPCION
+ALTER TABLE clases ALTER COLUMN descripcion TYPE VARCHAR(500);
+
 -- INSERT INTO DE CUOTA
 INSERT INTO cuota (id, nombre, descripcion, precio) VALUES (1, 'Cuota Diaria', 'Cuota diaria, acceso a las instalaciones un dia entero', 9.99);
 INSERT INTO cuota (id, nombre, descripcion, precio) VALUES (2, 'Cuota Mensual', 'Cuota mensual, acceso a las instalaciones durante un mes', 25.99);
@@ -6,9 +9,9 @@ INSERT INTO cuota (id, nombre, descripcion, precio) VALUES (3, 'Cuota Anual', 'C
 ALTER SEQUENCE cuota_seq RESTART WITH 54;
 
 -- INSERT INTO DE PLAN
-INSERT INTO plan (id, nombre, descripcion, precio, cuota_id) VALUES (1, 'Plan Básico', 'Plan basico que ofrece, clases grabadas y acceso limitado a las instalaciones', 9.99, 1);
-INSERT INTO plan (id, nombre, descripcion, precio, cuota_id) VALUES (2, 'Plan Medium', 'Plan Medium que ofrece acceso ilimitado sobre las instalaciones y complementos personalizados del gym', 15.99, 2);
-INSERT INTO plan (id, nombre, descripcion, precio, cuota_id) VALUES (3, 'Plan Premium', 'Plan Premium que ofrece entrenador personal, y un seguimiento con plan de nutricion', 20.99, 3);
+INSERT INTO plan (id, nombre, descripcion, precio, cuota_id) VALUES (1, 'Plan Básico', 'Plan básico que ofrece clases grabadas y acceso limitado a las instalaciones', 9.99, 1);
+INSERT INTO plan (id, nombre, descripcion, precio, cuota_id) VALUES (2, 'Plan Medium', 'Plan Medium que ofrece acceso ilimitado a las instalaciones y complementos personalizados del gym', 15.99, 2);
+INSERT INTO plan (id, nombre, descripcion, precio, cuota_id) VALUES (3, 'Plan Premium', 'Plan Premium que ofrece entrenador personal y seguimiento con plan de nutrición', 20.99, 3);
 
 ALTER SEQUENCE plan_seq RESTART WITH 54;
 
@@ -21,3 +24,20 @@ INSERT INTO socio (id, username, password, admin, nombre, apellidos, gmail, dire
 
 ALTER SEQUENCE socio_seq RESTART WITH 56;
 
+-- INSERT INTO DE CLASES
+INSERT INTO clases (id, capacidad_maxima, img, dias, nombre, descripcion) VALUES (1, 8, 'https://img.freepik.com/foto-gratis/personas-que-participan-clase-zumba_23-2149074871.jpg', 'Lunes y Jueves', 'Zumba', 'Las clases de Zumba son clases dirigidas en las que se realizan ejercicios aeróbicos al ritmo de música latina (merengue, samba, reggaeton, cumbia y salsa) con la finalidad de perder peso de forma divertida y mejorar el estado de ánimo de los deportistas.');
+INSERT INTO clases (id, capacidad_maxima, img, dias, nombre, descripcion) VALUES (2, 10, 'https://img.freepik.com/foto-gratis/gente-haciendo-ciclismo-indoor_23-2149270249.jpg', 'Martes y Viernes', 'Spinning', 'Las clases de Spinning tratan de un ejercicio físico colectivo, el cual se realiza sobre una bicicleta estática al ritmo de la música, en el que se efectúa un trabajo cardiovascular de alta intensidad con intervención muy elevada de los grandes grupos musculares del tren inferior.');
+INSERT INTO clases (id, capacidad_maxima, img, dias, nombre, descripcion) VALUES (3, 5, 'https://st2.depositphotos.com/1518767/8185/i/450/depositphotos_81859816-stock-photo-athletes-lifting-and-jumping.jpg', 'Miércoles y Sábados', 'Crossfit', 'Las clases de Crossfit son un tipo de entrenamiento tipo militar, el cual consiste en desarrollar potencia, ganar control del peso corporal (por medio de la gimnasia) y realizar ejercicios funcionales de alta intensidad para mejorar la capacidad funcional.');
+
+ALTER SEQUENCE clases_seq RESTART WITH 54;
+
+-- INSERT INTO DE CLASE RESERVA
+INSERT INTO reserva (clases_id, fecha_reserva, socio_id) VALUES (1,  '2024-06-07 13:15:00', 1);
+INSERT INTO reserva (clases_id, fecha_reserva, socio_id) VALUES (2,  '2024-06-07 14:15:00', 2);
+INSERT INTO reserva (clases_id, fecha_reserva, socio_id) VALUES (3,  '2024-06-07 15:15:00', 1);
+INSERT INTO reserva (clases_id, fecha_reserva, socio_id) VALUES (1,  '2024-06-08 13:15:00', 3);
+INSERT INTO reserva (clases_id, fecha_reserva, socio_id) VALUES (2,  '2024-06-08 14:15:00', 1);
+INSERT INTO reserva (clases_id, fecha_reserva, socio_id) VALUES (3,  '2024-06-08 15:15:00', 3);
+INSERT INTO reserva (clases_id, fecha_reserva, socio_id) VALUES (1,  '2024-06-09 13:15:00', 2);
+INSERT INTO reserva (clases_id, fecha_reserva, socio_id) VALUES (2,  '2024-06-09 14:15:00', 1);
+INSERT INTO reserva (clases_id, fecha_reserva, socio_id) VALUES (3,  '2024-06-09 15:15:00', 3);

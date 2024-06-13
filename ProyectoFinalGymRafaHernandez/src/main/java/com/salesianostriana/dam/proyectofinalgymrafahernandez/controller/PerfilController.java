@@ -3,18 +3,18 @@ package com.salesianostriana.dam.proyectofinalgymrafahernandez.controller;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import com.salesianostriana.dam.proyectofinalgymrafahernandez.model.Cuota;
 import com.salesianostriana.dam.proyectofinalgymrafahernandez.model.Plan;
+import com.salesianostriana.dam.proyectofinalgymrafahernandez.model.Reserva;
 import com.salesianostriana.dam.proyectofinalgymrafahernandez.model.Socio;
 import com.salesianostriana.dam.proyectofinalgymrafahernandez.service.CuotaService;
 import com.salesianostriana.dam.proyectofinalgymrafahernandez.service.PlanService;
 import com.salesianostriana.dam.proyectofinalgymrafahernandez.service.SocioService;
-import org.springframework.ui.Model;
 
 
 @Controller
@@ -56,6 +56,17 @@ public class PerfilController {
 	        return "error"; 
 	    }
 	}
+	
+	/*@GetMapping("/reserva/{id}")
+	public String mostrarReserva(@PathVariable("id") Long id, Model model) {
+		Optional<Socio> socioOpt = socioService.findById(id);
+		
+		if(socioOpt.isPresent()) {
+			Socio socio = socioOpt.get();
+			
+			
+		}
+	}*/
 
 
 

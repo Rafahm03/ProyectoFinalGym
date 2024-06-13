@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Clases COlectivas</title>
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+	<link th:href="@{/css/clases.css}" rel="stylesheet">
+</head>
+
+<body>
+	<header class="bg-dark text-white">
+		<div class="container d-flex justify-content-between align-items-center py-3">
+			<div class="logo">
+				<img th:src="@{/img/logo.png}" alt="Logo" width="auto">
+			</div>
+			<div class="d-flex align-items-center">
+				<a th:href="@{/cuotas}" class="btn btn-primary mr-3">APÚNTATE</a>
+				<div class="Botonsalir">
+					<a th:href="@{/}" class="btn btn-success">IR AL INDEX</a>
+				</div>
+				<div>
+					<a th:href="@{/admin/general}" sec:authorize="hasRole('ROLE_ADMIN')">
+						<i class="fas fa-cog"></i>
+					</a>
+				</div>
+				<button class="btn btn-danger mr-3">
+					<form name="cerrar-sesion" th:action="@{/logout}" method="POST"></form>
+					<a th:href="@{/logout}" class="fs-4 text-dark">
+						<i class="fas fa-sign-in-alt text-white mr-3"> Log Out</i>
+					</a>
+				</button>
+			</div>
+		</div>
+	</header>
+
+	<main>
+		<h1>NUSTRAS CLASES COLECTIVAS - RESERVALAS YA!</h1>
+		<div class="container text-center"> <!-- Añadido 'text-center' para centrar horizontalmente -->
+			<section class="my-5">
+				<div th:each="clase : ${clases}" class="card booking-card v-2 mt-2 mb-4 rounded-bottom">
+					<div class="bg-image hover-overlay ripple ripple-surface ripple-surface-light"
+						data-mdb-ripple-color="light">
+						<img th:src="@{${clase.img}}" class="img-fluid">
+						<a href="#!">
+							<div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+						</a>
+					</div>
+					<div class="card-body">
+						<h4 class="card-title font-weight-bold"><a th:text="${clase.nombre}">Nombre de la clase</a></h4>
+						<p class="card-text" th:text="${clase.descripcion}">Descripción de la clase</p>
+						<hr class="my-4">
+						<p class="h5 font-weight-bold mb-4">Días que se imparten:</p>
+						<ul class="list-unstyled d-flex justify-content-start align-items-center mb-0">
+							<li th:text="${clase.dias}">Días</li>
+						</ul>
+						<hr class="my-4">
+						<form th:action="@{/seleccionarClase}" method="post">
+							<input type="hidden" th:name="reservaId" th:value="${clase.id}" />
+							<button type="submit" class="btn btn-warning">RESERVAR</button>
+						</form>
+					</div>
+				</div>
+			</section>
+		</div>
+	</main>
+
+	<footer class="bg-dark text-white py-4">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-4">
+					<img th:src="@{/img/logo.png}" alt="Logo" width="auto">
+				</div>
+				<div class="col-md-4">
+					<h5>Síguenos en nuestras redes sociales</h5>
+					<i class="fab fa-instagram mx-2"></i>
+					<i class="fab fa-twitter mx-2"></i>
+					<i class="fab fa-facebook mx-2"></i>
+				</div>
+				<div class="col-md-4">
+					<h5>Derechos de privacidad</h5>
+					<p>Todos los derechos reservados &copy; 2024 Gimnasio XYZ. Política de privacidad y términos de uso.
+					</p>
+				</div>
+			</div>
+		</div>
+	</footer>
+</body>
+
+</html>

@@ -1,0 +1,108 @@
+body {
+    background-color: #f5f7fa;
+}
+
+header {
+    background-color: #343a40;
+    padding: 20px 0;
+    border-bottom: 4px solid orange;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .logo img {
+    max-height: 60px;
+    height: auto;
+}
+
+header .btn-primary {
+    background-color: orange;
+    border: none;
+}
+
+header .btn-danger a {
+    color: white;
+    text-decoration: none;
+}
+
+header .btn-danger a:hover {
+    text-decoration: underline;
+}
+
+header .btn-danger a i {
+    margin-right: 5px;
+}
+
+header .fas {
+    font-size: 20px;
+    color: white;
+    margin-left: 20px;
+}
+
+.card.booking-card.v-2 {
+    background-color: #c7f2e3;
+    margin: 10px;
+    display: inline-block;
+    vertical-align: top;
+    width: 23rem;
+}
+
+.card.booking-card.v-2 .fa {
+    color: #f7aa00;
+}
+
+.card.booking-card.v-2 .card-body .card-text {
+    color: #db2d43;
+}
+
+.card.booking-card.v-2 .chip {
+    background-color: #87e5da;
+}
+
+.card.booking-card.v-2 .card-body hr {
+    border-top: 1px solid #f7aa00;
+}
+
+footer {
+    background-color: #343a40;
+    padding: 20px 0;
+}
+
+footer .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+footer .col-md-4 {
+    flex: 1;
+    min-width: 250px;
+    margin-bottom: 20px;
+}
+
+footer .col-md-4 img {
+    max-height: 60px;
+    height: auto;
+}
+
+footer h5,
+footer p {
+    color: orange;
+}
+
+footer .fab {
+    font-size: 24px;
+    color: orange;
+    margin-right: 10px;
+    transition: color 0.2s;
+}
+
+footer .fab:hover {
+    color: white;
+}
+
