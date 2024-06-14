@@ -29,9 +29,9 @@ public class Reserva {
 	private Socio socio;
 
 	@ManyToOne
-	@MapsId("clases_id")
-	@JoinColumn(name = "clases_id")
-	private Clases clases;
+	@MapsId("clase_id")
+	@JoinColumn(name = "clase_id")
+	private Clase clase;
 
 	public void addToSocio(Socio s) {
 		s.getReservas().add(this);
@@ -43,6 +43,15 @@ public class Reserva {
 		this.socio = null;
 	}
 	
+	public void addToClase(Clase c) {
+		c.getReservas().add(this);
+		this.clase = c;
+	}
+
+	public void removeFromClase(Clase c) {
+		c.getReservas().remove(this);
+		this.clase = null;
+	}
 	public LocalDateTime getFechaReserva() {
         return this.reservaPK.getFecha_reserva();
     }
@@ -50,5 +59,7 @@ public class Reserva {
     public void setFechaReserva(LocalDateTime fecha_reserva) {
         this.reservaPK.setFecha_reserva(fecha_reserva);
     }
+
+	
 
 }

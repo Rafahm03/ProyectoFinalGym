@@ -57,7 +57,7 @@
                             <li th:text="${clase.dias}">Días</li>
                         </ul>
                         <hr class="my-4">
-                        <form th:action="@{/reservarclase}" method="post">
+                        <form th:action="@{/reservarclase}" method="get">
                             <input type="hidden" name="clasesId" th:value="${clase.id}" />
                             <button type="submit" class="btn btn-warning">RESERVAR</button>
                         </form>

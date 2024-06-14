@@ -15,7 +15,7 @@ public class ReservaPK implements Serializable{
 	 private static final long serialVersionUID = 1L;
 	 
 	 private long socio_id;
-	 private long clases_id;
+	 private long clase_id;
 	 
 	 @Column(name = "fecha_reserva")
 	    private LocalDateTime fecha_reserva;

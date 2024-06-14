@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 
 import com.salesianostriana.dam.proyectofinalgymrafahernandez.model.Reserva;
 import com.salesianostriana.dam.proyectofinalgymrafahernandez.model.ReservaPK;
-import com.salesianostriana.dam.proyectofinalgymrafahernandez.repos.ClasesRepositorio;
+import com.salesianostriana.dam.proyectofinalgymrafahernandez.repos.ClaseRepositorio;
 import com.salesianostriana.dam.proyectofinalgymrafahernandez.repos.ReservaRepositorio;
 import com.salesianostriana.dam.proyectofinalgymrafahernandez.repos.SocioRepositorio;
 @Service
@@ -13,7 +13,7 @@ public class ReservaService extends BaseServiceImpl<Reserva, ReservaPK, ReservaR
 
 
     @Autowired
-    private ClasesRepositorio clasesRepositorio;
+    private ClaseRepositorio clasesRepositorio;
 
     @Autowired
     private SocioRepositorio socioRepositorio;
