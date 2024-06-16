@@ -69,7 +69,7 @@ public class CuotaControler {
 	}
 
 	@GetMapping("/admin/cuota/editar/{id}")
-	public String mostrarFormularioEdicion(@PathVariable("id") long id, Model model) {
+	public String mostrarFormularioEdicion(@PathVariable("id") Long id, Model model) {
 		Optional<Cuota> aEditarOptional = cuotaService.findById(id);
 
 		if (aEditarOptional.isPresent()) {
@@ -88,7 +88,7 @@ public class CuotaControler {
 	}
 
 	@GetMapping("/admin/cuota/borrar/{id}")
-	public String borrarCuota(@PathVariable("id") long id, Model model) {
+	public String borrarCuota(@PathVariable("id") Long id, Model model) {
 		Optional<Cuota> aBorrarOp = cuotaService.findById(id);
 
 		if (aBorrarOp.isPresent()) {

@@ -2,74 +2,70 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Panel de Reserva</title>
-	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-	<link th:href="@{/css/perfil.css}" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Reserva</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link th:href="@{/css/perfil.css}" rel="stylesheet">
 </head>
 
 <body>
-	<header class="bg-dark text-white">
-		<div class="container d-flex justify-content-between align-items-center py-3">
-			<div class="logo">
-				<img th:src="@{/img/logo.png}" alt="Logo" width="auto">
-			</div>
-			<div class="d-flex align-items-center">
-				<a th:href="@{/cuotas}" class="btn btn-primary mr-3">APUNTATE</a>
-				<div class="Botonsalir">
-					<a th:href="@{/}" class="btn btn-success">IR AL INDEX</a>
-				</div>
-				<div>
-					<a th:href="@{/admin/general}" sec:authorize="hasRole('ROLE_ADMIN')">
-						<i class="fas fa-cog"></i>
-					</a>
-				</div>
-				<button class="btn btn-danger mr-3">
-					<form name="cerrar-sesion" th:action="@{/logout}" method="POST"></form>
-					<a th:href="@{/logout}" class="fs-4 text-dark"> <i class="fas fa-sign-in-alt text-white mr-3"> Log
-							Out</i></a>
-				</button>
-			</div>
-		</div>
-	</header>
-	<div class="container mt-5">
-		<h1 class="text-center mb-4">RESERVA</h1>
-		<div class="card">
-			<div class="card-body">
-				<h3 class="card-title">Información del Socio</h3>
-				<p>Nombre: <span th:text="${socio.nombre}"></span></p>
-				<p>Apellido: <span th:text="${socio.apellidos}"></span> </p>
-				<p>Email: <span th:text="${socio.gmail}"></span></p>
-				<hr>
-				<h4>Clase Colectiva Elegida</h4>
-				<p th:text="${clase}"></p>
-				<hr>
-                <p>Fecha Reserva: <span th:field="*{fecha_reserva}" placeholder="fecha_reserva"></span> </p>
-			</div>
-		</div>
-	</div>
-	<!-- Footer -->
-		<footer class="bg-dark text-white py-4">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-4">
-						<img th:src="@{/img/logo.png}" alt="Logo" width="auto">
-					</div>
-					<div class="col-md-4">
-						<h5>Síguenos en nuestras redes sociales</h5>
-						<i class="fab fa-instagram mx-2"></i>
-						<i class="fab fa-twitter mx-2"></i>
-						<i class="fab fa-facebook mx-2"></i>
-					</div>
-					<div class="col-md-4">
-						<h5>Derechos de privacidad</h5>
-						<p>Todos los derechos reservados &copy; 2024 Gimnasio XYZ. Política de privacidad y términos de uso.
-						</p>
-					</div>
-				</div>
-			</div>
-		</footer>
+    <header class="bg-dark text-white">
+        <div class="container d-flex justify-content-between align-items-center py-3">
+            <div class="logo">
+                <img th:src="@{/img/logo.png}" alt="Logo" width="auto">
+            </div>
+            <div class="d-flex align-items-center">
+                <a th:href="@{/cuotas}" class="btn btn-primary mr-3">APÚNTATE</a>
+                <div class="Botonsalir">
+                    <a th:href="@{/}" class="btn btn-success">IR AL INDEX</a>
+                </div>
+                <div>
+                    <a th:href="@{/admin/general}" sec:authorize="hasRole('ROLE_ADMIN')">
+                        <i class="fas fa-cog"></i>
+                    </a>
+                </div>
+                <a th:href="@{/logout}" class="btn btn-danger fs-4 text-dark">
+                    <i class="fas fa-sign-in-alt text-white mr-3"></i> Log Out
+                </a>
+            </div>
+        </div>
+    </header>
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">RESERVAS DEL SOCIO</h1>
+
+        <div th:if="${reservas.size() > 0}">
+            <h3>Tus Reservas</h3>
+            <ul class="list-group">
+                <li class="list-group-item" th:each="reserva : ${reservas}">
+                    <p><strong>Clase colectiva:</strong> <span th:text="${reserva.clase.nombre}">Nombre de la Clase</span></p>
+                    <p><strong>Fecha:</strong> <span th:text="${#temporals.format(reserva.fechaReserva, 'yyyy-MM-dd HH:mm')}">Fecha de la Reserva</span></p>
+                </li>
+            </ul>
+        </div>
+        <div th:if="${reservas.size() == 0}">
+            <p class="text-center">No tienes reservas.</p>
+        </div>
+    </div>
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <img th:src="@{/img/logo.png}" alt="Logo" width="auto">
+                </div>
+                <div class="col-md-4">
+                    <h5>Síguenos en nuestras redes sociales</h5>
+                    <i class="fab fa-instagram mx-2"></i>
+                    <i class="fab fa-twitter mx-2"></i>
+                    <i class="fab fa-facebook mx-2"></i>
+                </div>
+                <div class="col-md-4">
+                    <h5>Derechos de privacidad</h5>
+                    <p>Todos los derechos reservados &copy; 2024 Gimnasio XYZ. Política de privacidad y términos de uso.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
 </body>
 
 </html>

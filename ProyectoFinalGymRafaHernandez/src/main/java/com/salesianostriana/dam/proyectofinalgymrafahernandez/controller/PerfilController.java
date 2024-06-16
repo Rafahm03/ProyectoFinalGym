@@ -56,21 +56,5 @@ public class PerfilController {
 	        return "error"; 
 	    }
 	}
-	
-	/*@GetMapping("/reserva/{id}")
-	public String mostrarReserva(@PathVariable("id") Long id, Model model) {
-		Optional<Socio> socioOpt = socioService.findById(id);
-		
-		if(socioOpt.isPresent()) {
-			Socio socio = socioOpt.get();
-			
-			
-		}
-	}*/
-
-
-
-
-
 
 }

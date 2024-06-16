@@ -2949,3 +2949,94 @@ INSERT INTO clase (id, capacidad_maxima, img, dias, nombre, descripcion) VALUES 
 org.h2.jdbc.JdbcSQLDataException: Valor demasiado largo para la columna "DESCRIPCION CHARACTER VARYING(255)": "'Las clases de Crossfit son un tipo de entrenamiento tipo militar, el cual consi... (256)"
 Value too long for column "DESCRIPCION CHARACTER VARYING(255)": "'Las clases de Crossfit son un tipo de entrenamiento tipo militar, el cual consi... (256)"; SQL statement:
 INSERT INTO clase (id, capacidad_maxima, img, dias, nombre, descripcion) VALUES (3, 5, 'https://st2.depositphotos.com/1518767/8185/i/450/depositphotos_81859816-stock-photo-athletes-lifting-and-jumping.jpg', 'Miércoles y Sábados', 'Crossfit', 'Las clases de Crossfit son un tipo de entrenamiento tipo militar, el cual consiste en desarrollar potencia, ganar control del peso corporal (por medio de la gimnasia) y realizar ejercicios funcionales de alta intensidad para mejorar la capacidad funcional.') [22001-224]
+2024-06-14 15:42:06.621989+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "INSERT INTO reserva (clase_id, fecha_reserva, socio_id) VALUES (1,  '2024-06-07 13:15:00', 1, [*])"; se esperaba "DEFAULT, INTERSECTS (, NOT, EXISTS, UNIQUE, INTERSECTS"
+Syntax error in SQL statement "INSERT INTO reserva (clase_id, fecha_reserva, socio_id) VALUES (1,  '2024-06-07 13:15:00', 1, [*])"; expected "DEFAULT, INTERSECTS (, NOT, EXISTS, UNIQUE, INTERSECTS"; SQL statement:
+INSERT INTO reserva (clase_id, fecha_reserva, socio_id) VALUES (1,  '2024-06-07 13:15:00', 1, ) [42001-224]
+2024-06-14 15:42:06.627995+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "INSERT INTO reserva (clase_id, fecha_reserva, socio_id) VALUES (2,  '2024-06-07 14:15:00', 2, [*])"; se esperaba "DEFAULT, INTERSECTS (, NOT, EXISTS, UNIQUE, INTERSECTS"
+Syntax error in SQL statement "INSERT INTO reserva (clase_id, fecha_reserva, socio_id) VALUES (2,  '2024-06-07 14:15:00', 2, [*])"; expected "DEFAULT, INTERSECTS (, NOT, EXISTS, UNIQUE, INTERSECTS"; SQL statement:
+INSERT INTO reserva (clase_id, fecha_reserva, socio_id) VALUES (2,  '2024-06-07 14:15:00', 2, ) [42001-224]
+2024-06-14 15:42:06.630997+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "INSERT INTO reserva (clase_id, fecha_reserva, socio_id) VALUES (3,  '2024-06-07 15:15:00', 5, [*])"; se esperaba "DEFAULT, INTERSECTS (, NOT, EXISTS, UNIQUE, INTERSECTS"
+Syntax error in SQL statement "INSERT INTO reserva (clase_id, fecha_reserva, socio_id) VALUES (3,  '2024-06-07 15:15:00', 5, [*])"; expected "DEFAULT, INTERSECTS (, NOT, EXISTS, UNIQUE, INTERSECTS"; SQL statement:
+INSERT INTO reserva (clase_id, fecha_reserva, socio_id) VALUES (3,  '2024-06-07 15:15:00', 5, ) [42001-224]
+2024-06-14 15:42:06.631998+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "INSERT INTO reserva (clase_id, fecha_reserva, socio_id) VALUES (1,  '2024-06-08 13:15:00', 4,[*])"; se esperaba "DEFAULT, INTERSECTS (, NOT, EXISTS, UNIQUE, INTERSECTS"
+Syntax error in SQL statement "INSERT INTO reserva (clase_id, fecha_reserva, socio_id) VALUES (1,  '2024-06-08 13:15:00', 4,[*])"; expected "DEFAULT, INTERSECTS (, NOT, EXISTS, UNIQUE, INTERSECTS"; SQL statement:
+INSERT INTO reserva (clase_id, fecha_reserva, socio_id) VALUES (1,  '2024-06-08 13:15:00', 4,) [42001-224]
+2024-06-14 15:42:06.632999+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "INSERT INTO reserva (clase_id, fecha_reserva, socio_id) VALUES (2,  '2024-06-08 14:15:00', 3, [*])"; se esperaba "DEFAULT, INTERSECTS (, NOT, EXISTS, UNIQUE, INTERSECTS"
+Syntax error in SQL statement "INSERT INTO reserva (clase_id, fecha_reserva, socio_id) VALUES (2,  '2024-06-08 14:15:00', 3, [*])"; expected "DEFAULT, INTERSECTS (, NOT, EXISTS, UNIQUE, INTERSECTS"; SQL statement:
+INSERT INTO reserva (clase_id, fecha_reserva, socio_id) VALUES (2,  '2024-06-08 14:15:00', 3, ) [42001-224]
+2024-06-14 15:42:06.634000+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "INSERT INTO reserva (clase_id, fecha_reserva, socio_id) VALUES (3,  '2024-06-08 15:15:00', 4,[*])"; se esperaba "DEFAULT, INTERSECTS (, NOT, EXISTS, UNIQUE, INTERSECTS"
+Syntax error in SQL statement "INSERT INTO reserva (clase_id, fecha_reserva, socio_id) VALUES (3,  '2024-06-08 15:15:00', 4,[*])"; expected "DEFAULT, INTERSECTS (, NOT, EXISTS, UNIQUE, INTERSECTS"; SQL statement:
+INSERT INTO reserva (clase_id, fecha_reserva, socio_id) VALUES (3,  '2024-06-08 15:15:00', 4,) [42001-224]
+2024-06-14 15:42:06.635001+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "INSERT INTO reserva (clase_id, fecha_reserva, socio_id) VALUES (1,  '2024-06-09 13:15:00', 2, [*])"; se esperaba "DEFAULT, INTERSECTS (, NOT, EXISTS, UNIQUE, INTERSECTS"
+Syntax error in SQL statement "INSERT INTO reserva (clase_id, fecha_reserva, socio_id) VALUES (1,  '2024-06-09 13:15:00', 2, [*])"; expected "DEFAULT, INTERSECTS (, NOT, EXISTS, UNIQUE, INTERSECTS"; SQL statement:
+INSERT INTO reserva (clase_id, fecha_reserva, socio_id) VALUES (1,  '2024-06-09 13:15:00', 2, ) [42001-224]
+2024-06-14 15:42:06.635001+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "INSERT INTO reserva (clase_id, fecha_reserva, socio_id) VALUES (2,  '2024-06-09 14:15:00', 1, [*])"; se esperaba "DEFAULT, INTERSECTS (, NOT, EXISTS, UNIQUE, INTERSECTS"
+Syntax error in SQL statement "INSERT INTO reserva (clase_id, fecha_reserva, socio_id) VALUES (2,  '2024-06-09 14:15:00', 1, [*])"; expected "DEFAULT, INTERSECTS (, NOT, EXISTS, UNIQUE, INTERSECTS"; SQL statement:
+INSERT INTO reserva (clase_id, fecha_reserva, socio_id) VALUES (2,  '2024-06-09 14:15:00', 1, ) [42001-224]
+2024-06-14 15:42:06.636002+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "INSERT INTO reserva (clase_id, fecha_reserva, socio_id) VALUES (3,  '2024-06-09 15:15:00', 3, [*])"; se esperaba "DEFAULT, INTERSECTS (, NOT, EXISTS, UNIQUE, INTERSECTS"
+Syntax error in SQL statement "INSERT INTO reserva (clase_id, fecha_reserva, socio_id) VALUES (3,  '2024-06-09 15:15:00', 3, [*])"; expected "DEFAULT, INTERSECTS (, NOT, EXISTS, UNIQUE, INTERSECTS"; SQL statement:
+INSERT INTO reserva (clase_id, fecha_reserva, socio_id) VALUES (3,  '2024-06-09 15:15:00', 3, ) [42001-224]
+2024-06-15 01:04:41.726672+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Sequence "RESERVA_SEQ" no encontrado
+Sequence "RESERVA_SEQ" not found; SQL statement:
+AlTER SEQUENCE reserva_seq RESTART WITH 56 [90036-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:644)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.command.ddl.AlterSequence.update(AlterSequence.java:78)
+	at org.h2.command.ddl.SchemaOwnerCommand.update(SchemaOwnerCommand.java:33)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:169)
+	at org.h2.command.Command.executeUpdate(Command.java:256)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:262)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231)
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94)
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:80)
+	at org.hibernate.tool.schema.internal.Helper.applySqlString(Helper.java:233)
+	at org.hibernate.tool.schema.internal.Helper.applyScript(Helper.java:255)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.applyImportFiles(SchemaCreatorImpl.java:676)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.applyImportSources(SchemaCreatorImpl.java:595)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.performCreation(SchemaCreatorImpl.java:184)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.doCreation(SchemaCreatorImpl.java:142)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.doCreation(SchemaCreatorImpl.java:118)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:250)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$5(SchemaManagementToolCoordinator.java:144)
+	at java.base/java.util.HashMap.forEach(HashMap.java:1421)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:141)
+	at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:37)
+	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:35)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:322)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:457)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1506)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:75)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1835)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1784)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:600)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:205)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:952)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:624)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:335)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1363)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1352)
+	at com.salesianostriana.dam.proyectofinalgymrafahernandez.ProyectoFinalGymRafaHernandezApplication.main(ProyectoFinalGymRafaHernandezApplication.java:10)

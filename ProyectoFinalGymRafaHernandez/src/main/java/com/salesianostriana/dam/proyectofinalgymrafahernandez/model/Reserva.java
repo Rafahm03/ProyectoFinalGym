@@ -21,8 +21,6 @@ public class Reserva {
 	@EmbeddedId
 	private ReservaPK reservaPK = new ReservaPK();
 	
-	private String nombreSolicitante;
-
 	@ManyToOne
 	@MapsId("socio_id")
 	@JoinColumn(name = "socio_id")
@@ -43,15 +41,7 @@ public class Reserva {
 		this.socio = null;
 	}
 	
-	public void addToClase(Clase c) {
-		c.getReservas().add(this);
-		this.clase = c;
-	}
-
-	public void removeFromClase(Clase c) {
-		c.getReservas().remove(this);
-		this.clase = null;
-	}
+	
 	public LocalDateTime getFechaReserva() {
         return this.reservaPK.getFecha_reserva();
     }
