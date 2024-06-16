@@ -3,7 +3,7 @@
 
 <head>
 	<meta charset="UTF-8">
-	<title>Planes del Gym</title>
+	<title>Clases del Gym</title>
 	<!-- Bootstrap CSS -->
 	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="../static/css/socios.css" th:href="@{/css/socios.css}" />
@@ -14,18 +14,18 @@
 	<main>
 		<div id="menu">
 			<a th:href="@{/admin/general}">Volver a la vista general del administrador</a> | 
-			<a th:href="@{/admin/cuota/nuevo}">Nuevo Plan</a>
+			<a th:href="@{/admin/clase/nuevo}">Nueva Clase</a>
 		</div>
 		<br /><br />
 		
 		<div class="container">
-		           <form th:action="@{/admin/planes/buscar}" method="post" class="form-inline mb-3">
-		               <div class="form-group mx-sm-3 mb-2">
-		                   <input type="text" name="query" class="form-control" placeholder="Buscar por nombre ">
-		               </div>
-		               <button type="submit" class="btn btn-primary mb-2">Buscar</button>
-		           </form>
-		       </div>
+				           <form th:action="@{/admin/clases/buscar}" method="post" class="form-inline mb-3">
+				               <div class="form-group mx-sm-3 mb-2">
+				                   <input type="text" name="query" class="form-control" placeholder="Buscar por nombre ">
+				               </div>
+				               <button type="submit" class="btn btn-primary mb-2">Buscar</button>
+				           </form>
+				       </div>
 		
 		<!-- Mensajes de Éxito/Error -->
 		<div th:if="${successMessage}" class="alert alert-success" role="alert" th:text="${successMessage}"></div>
@@ -37,24 +37,22 @@
 					<th>Id</th>
 					<th>Nombre</th>
 					<th>Descripción</th>
-					<th>Precio</th>
 					<th>Operaciones</th>
 				</tr>
 			</thead>
 			<tbody>
-				<tr th:each="plan : ${planes}">
-					<td th:text="${plan.id}">1</td>
-					<td th:text="${plan.nombre}">Nombre</td>
-					<td th:text="${plan.descripcion}">Descripción</td>
-					<td th:text="${plan.precio}">Precio</td>
+				<tr th:each="clase : ${clases}">
+					<td th:text="${clase.id}">1</td>
+					<td th:text="${clase.nombre}">Nombre</td>
+					<td th:text="${clase.descripcion}">Descripción</td>
 					<td>
-						<a th:href="@{/admin/plan/editar/{id}(id=${plan.id})}" class="btn btn-primary btn-sm botonEditar">
+						<a th:href="@{/admin/clase/editar/{id}(id=${clase.id})}" class="btn btn-primary btn-sm botonEditar">
 							<i class="bi bi-pencil-square"></i>
 						</a>
-						<a class="btn btn-danger btn-sm botonBorrar" data-toggle="modal" th:attr="data-target='#removePlan-' + ${plan.id}">
+						<a class="btn btn-danger btn-sm botonBorrar" data-toggle="modal" th:attr="data-target='#removeClase-' + ${clase.id}">
 							<i class="bi bi-trash"></i>
 						</a>
-						<div class="modal fade text-black" th:id="'removePlan-' + ${plan.id}">
+						<div class="modal fade text-black" th:id="'removeClase-' + ${clase.id}">
 							<div class="modal-dialog remove">
 								<div class="modal-content">
 									<div class="modal-header bg-primary border-1">
@@ -62,10 +60,10 @@
 										<button type="button" class="btn-close mx-0" data-dismiss="modal"></button>
 									</div>
 									<div class="modal-body bg-white">
-										<p class="text-dark mb-4">¿Quieres borrar esta Cuota?</p>
+										<p class="text-dark mb-4">¿Quieres borrar esta Clase?</p>
 										<div class="d-grid gap-2">
-											<a class="btn btn-danger btn-lg" th:href="@{/admin/plan/borrar/{id}(id=${plan.id})}">
-												<i class="bi bi-trash me-2"></i> Borrar Cuota
+											<a class="btn btn-danger btn-lg" th:href="@{/admin/clase/borrar/{id}(id=${clase.id})}">
+												<i class="bi bi-trash me-2"></i> Borrar Clase
 											</a>
 										</div>
 									</div>
@@ -88,4 +86,3 @@
 </body>
 
 </html>
-

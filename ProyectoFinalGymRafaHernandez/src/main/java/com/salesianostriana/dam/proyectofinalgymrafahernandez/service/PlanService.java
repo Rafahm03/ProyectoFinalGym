@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.salesianostriana.dam.proyectofinalgymrafahernandez.model.Plan;
+import com.salesianostriana.dam.proyectofinalgymrafahernandez.model.Socio;
 import com.salesianostriana.dam.proyectofinalgymrafahernandez.repos.PlanRepositorio;
 
 @Service
@@ -22,4 +23,8 @@ public class PlanService extends BaseServiceImpl<Plan, Long, PlanRepositorio>{
     public Optional<Plan> findById(Long id) {
         return planRepositorio.findById(id);
     }
+    
+    public List<Plan> findByNombre(String nombre) {
+		return planRepositorio.findByNombreContainingIgnoreCase(nombre);
+	}
 }

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.salesianostriana.dam.proyectofinalgymrafahernandez.model.Cuota;
 import com.salesianostriana.dam.proyectofinalgymrafahernandez.model.Socio;
@@ -45,15 +46,22 @@ public class CuotaControler {
 			return "error";
 		}
 	}
-
+	
 	@GetMapping("/admin/cuotas/lista")
-	public String mostrarSocios(Model model) {
-
-		model.addAttribute("cuotas", cuotaService.findAll());
-
-		return "cuotasAdmin";
-
-	}
+    public String listaCuotas(@RequestParam(name = "query", required = false) String query, Model model) {
+        if (query != null && !query.isEmpty()) {
+            model.addAttribute("cuotas", cuotaService.findByNombre(query));
+        } else {
+            model.addAttribute("cuotas", cuotaService.findAll());
+        }
+        return "cuotasAdmin";
+    }
+    
+    @PostMapping("/admin/cuotas/buscar")
+    public String buscarCuotas(@RequestParam("query") String query, RedirectAttributes redirectAttributes) {
+        redirectAttributes.addAttribute("query", query);
+        return "redirect:/admin/cuotas/lista";
+    }
 
 	@GetMapping("/admin/cuota/nuevo")
 	public String mostrarFormularioCuota(Model model) {

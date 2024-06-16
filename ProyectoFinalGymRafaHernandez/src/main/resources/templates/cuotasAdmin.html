@@ -6,7 +6,7 @@
 	<title>Cuotas del Gym</title>
 	<!-- Bootstrap CSS -->
 	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-	<link rel="stylesheet" href="../static/css/cuotas.css" th:href="@{/css/cuotas.css}" />
+	<link rel="stylesheet" href="../static/css/socios.css" th:href="@{/css/socios.css}" />
 </head>
 
 <body>
@@ -17,6 +17,15 @@
 			<a th:href="@{/admin/cuota/nuevo}">Nueva Cuota</a>
 		</div>
 		<br /><br />
+		
+		<div class="container">
+				           <form th:action="@{/admin/cuotas/buscar}" method="post" class="form-inline mb-3">
+				               <div class="form-group mx-sm-3 mb-2">
+				                   <input type="text" name="query" class="form-control" placeholder="Buscar por nombre ">
+				               </div>
+				               <button type="submit" class="btn btn-primary mb-2">Buscar</button>
+				           </form>
+				       </div>
 		
 		<!-- Mensajes de Éxito/Error -->
 		<div th:if="${successMessage}" class="alert alert-success" role="alert" th:text="${successMessage}"></div>

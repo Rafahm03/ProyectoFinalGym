@@ -23,7 +23,7 @@
 			<div id="menu">
 					        <a th:href="@{/}">Inicio</a> | <a th:href="@{/admin/socios/lista}">Lista Clientes</a>
 					    </div>
-						<h1>MODIFICAR SOCIO</h1>
+						<h1>GESTIÓN SOCIOS</h1>
 					    <div id="formulario">
 			
 					        <form th:action="${socio.id != 0} ? @{/admin/socio/editar/submit} : @{/admin/socio/nuevo/submit}" th:object="${socio}" method="post">

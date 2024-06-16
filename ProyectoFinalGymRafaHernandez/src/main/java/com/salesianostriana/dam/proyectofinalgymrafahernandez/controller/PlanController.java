@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.salesianostriana.dam.proyectofinalgymrafahernandez.model.Cuota;
 import com.salesianostriana.dam.proyectofinalgymrafahernandez.model.Plan;
@@ -51,14 +52,21 @@ public class PlanController {
 	    }
 	}
 	
-	@GetMapping("/admin/planes/lista")
-	public String mostrarSocios(Model model) {
-
-		model.addAttribute("planes", planService.findAll());
-
-		return "planesAdmin";
-
-	}
+	 @GetMapping("/admin/planes/lista")
+	    public String listaPlanes(@RequestParam(name = "query", required = false) String query, Model model) {
+	        if (query != null && !query.isEmpty()) {
+	            model.addAttribute("planes", planService.findByNombre(query));
+	        } else {
+	            model.addAttribute("planes", planService.findAll());
+	        }
+	        return "planesAdmin";
+	    }
+	    
+	    @PostMapping("/admin/planes/buscar")
+	    public String buscarPlanes(@RequestParam("query") String query, RedirectAttributes redirectAttributes) {
+	        redirectAttributes.addAttribute("query", query);
+	        return "redirect:/admin/planes/lista";
+	    }
 
 	@GetMapping("/admin/plan/nuevo")
 	public String mostrarFormularioPlan(Model model) {
