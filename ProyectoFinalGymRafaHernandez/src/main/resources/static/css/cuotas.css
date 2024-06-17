@@ -1,5 +1,8 @@
 /* Incluye el CSS aquí */
 body {
+	width: 100%;
+	padding: 0;
+	margin: 0;
 	background-color: #e0ecf1;
 	font-family: Arial, sans-serif;
 }
@@ -47,6 +50,10 @@ header .fas {
 	font-size: 20px;
 	color: white;
 	margin-left: 20px;
+}
+
+main {
+    width: 100%;
 }
 
 .card-deck .card {

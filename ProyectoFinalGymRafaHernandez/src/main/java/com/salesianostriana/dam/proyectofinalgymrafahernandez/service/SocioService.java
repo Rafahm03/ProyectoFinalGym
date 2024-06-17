@@ -32,25 +32,5 @@ public class SocioService extends BaseServiceImpl<Socio, Long, SocioRepositorio>
 	public List<Socio> findByNombreYApellidos(String nombre, String apellidos) {
 		return socioRepositorio.findByNombreContainingIgnoreCaseOrApellidosContainingIgnoreCase(nombre, apellidos);
 	}
-	
-	 public double calcularCostoTotalSuscripcion(Long socioId) {
-	        Optional<Socio> socioOpt = socioRepositorio.findById(socioId);
 
-	        if (socioOpt.isPresent()) {
-	            Socio socio = socioOpt.get();
-
-	            double costoCuota = Optional.ofNullable(socio.getCuota())
-	                                        .map(Cuota::getPrecio)
-	                                        .orElse(0.0);
-
-	            double costoPlan = Optional.ofNullable(socio.getPlan())
-	                                       .map(Plan::getPrecio)
-	                                       .orElse(0.0);
-
-	            return costoCuota + costoPlan;
-	        } else {
-	            // Manejar el caso en que el socio no se encuentre, podría lanzar una excepción
-	            throw new NoSuchElementException("Socio no encontrado con ID: " + socioId);
-	        }
-	    }
 }

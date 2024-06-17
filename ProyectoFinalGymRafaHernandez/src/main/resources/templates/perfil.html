@@ -51,7 +51,7 @@
 				<h3 class="text-center">Costo Total de Suscripción:</h3>
 				<h2 class="text-center">
 					<span th:if="${socio.plan != null && socio.plan.cuota != null}"
-						th:text="${#numbers.formatDecimal(socio.plan.cuota.precio + socio.plan.precio, 2, 'POINT', 3, 'COMMA')}"></span>€</h2>
+						th:text="${#numbers.formatDecimal(socio.cuota.precio + socio.plan.precio, 2, 'POINT', 3, 'COMMA')}"></span>€</h2>
 			</div>
 		</div>
 	</div>
