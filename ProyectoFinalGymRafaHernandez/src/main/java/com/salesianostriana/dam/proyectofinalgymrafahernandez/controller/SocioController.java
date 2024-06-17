@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.salesianostriana.dam.proyectofinalgymrafahernandez.excepciones.ExcepcionBorrarSocio;
 import com.salesianostriana.dam.proyectofinalgymrafahernandez.model.Socio;
 import com.salesianostriana.dam.proyectofinalgymrafahernandez.service.SocioService;
 
@@ -75,14 +76,18 @@ public class SocioController {
 		
 		@GetMapping("/admin/socio/borrar/{id}")
 		public String borrarSocio(@PathVariable("id") long id, Model model) {
-			Optional<Socio> aBorrarOp = socioService.findById(id);
-			
-			if(aBorrarOp.isPresent()) {
-				Socio aBorrar= aBorrarOp.get();
-				model.addAttribute("socio", aBorrar);
-				socioService.delete(aBorrar);
+		    Optional<Socio> aBorrarOp = socioService.findById(id);
+		    
+		    if (aBorrarOp.isPresent()) {
+		        Socio aBorrar = aBorrarOp.get();
+		        if (aBorrar.getCuota() == null && aBorrar.getPlan() == null && aBorrar.getReservas()==null) {
+		            socioService.delete(aBorrar);
+		        } else {
+		            throw new ExcepcionBorrarSocio();
+		        }
+		    }
+		    return "redirect:/admin/socios/lista";
 		}
-			return "redirect:/admin/socios/lista";
 
-	}
+
 }

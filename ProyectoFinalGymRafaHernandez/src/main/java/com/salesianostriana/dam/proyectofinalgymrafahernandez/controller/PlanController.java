@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.salesianostriana.dam.proyectofinalgymrafahernandez.model.Cuota;
+import com.salesianostriana.dam.proyectofinalgymrafahernandez.excepciones.ExcepcionBorrarPlan;
 import com.salesianostriana.dam.proyectofinalgymrafahernandez.model.Plan;
 import com.salesianostriana.dam.proyectofinalgymrafahernandez.model.Socio;
 import com.salesianostriana.dam.proyectofinalgymrafahernandez.service.CuotaService;
@@ -101,18 +101,18 @@ public class PlanController {
 	}
 
 	@GetMapping("/admin/plan/borrar/{id}")
-	public String borrarPlan(@PathVariable("id") long id, Model model) {
+	public String borrarPlan(@PathVariable("id") Long id, Model model) {
 		Optional<Plan> aBorrarOp = planService.findById(id);
 
 		if (aBorrarOp.isPresent()) {
 			Plan aBorrar = aBorrarOp.get();
-			model.addAttribute("plan", aBorrar);
-			planService.delete(aBorrar);
-		}
-		return "redirect:/admin/planes/lista";
-
-	}//Hay que modificar el método para que si intenta borrar una cuota con un socio asociado,
-	//salte una excepción.
-
+			if (aBorrar.getCuota()==null && aBorrar.getSocios()==null) {
+	            planService.delete(aBorrar);
+	        } else {
+	            throw new ExcepcionBorrarPlan();
+	        }
+	    }
+	    return "redirect:/admin/planes/lista";
+	}
 
 }

@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.salesianostriana.dam.proyectofinalgymrafahernandez.excepciones.ExcepcionBorrarClase;
 import com.salesianostriana.dam.proyectofinalgymrafahernandez.model.Clase;
 import com.salesianostriana.dam.proyectofinalgymrafahernandez.service.ClaseService;
 
@@ -68,7 +69,20 @@ public class ClaseController {
 		return "redirect:/admin/clases/lista";
 	}
 	
-	
+	@GetMapping("/admin/clase/borrar/{id}")
+	public String borrarClase(@PathVariable("id") long id, Model model) {
+	    Optional<Clase> aBorrarOp = claseService.findById(id);
+	    
+	    if (aBorrarOp.isPresent()) {
+	        Clase aBorrar = aBorrarOp.get();
+	        if (aBorrar.getReservas()==null) {
+	            claseService.delete(aBorrar);
+	        } else {
+	            throw new ExcepcionBorrarClase();
+	        }
+	    }
+	    return "redirect:/admin/socios/lista";
+	}
     
     
 }

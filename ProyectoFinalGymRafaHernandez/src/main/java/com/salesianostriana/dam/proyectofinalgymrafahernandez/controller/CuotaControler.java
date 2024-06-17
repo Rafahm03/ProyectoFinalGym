@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.salesianostriana.dam.proyectofinalgymrafahernandez.excepciones.ExcepcionBorrarCuota;
 import com.salesianostriana.dam.proyectofinalgymrafahernandez.model.Cuota;
 import com.salesianostriana.dam.proyectofinalgymrafahernandez.model.Socio;
 import com.salesianostriana.dam.proyectofinalgymrafahernandez.service.CuotaService;
@@ -101,13 +102,14 @@ public class CuotaControler {
 
 		if (aBorrarOp.isPresent()) {
 			Cuota aBorrar = aBorrarOp.get();
-			model.addAttribute("cuota", aBorrar);
-			cuotaService.delete(aBorrar);
-		}
-		return "redirect:/admin/cuotas/lista";
-
-	}//Hay que modificar el método para que si intenta borrar una cuota con un socio asociado,
-	//salte una excepción.
+			if (aBorrar.getSocios()==null && aBorrar.getPlan()==null ) {
+	            cuotaService.delete(aBorrar);
+	        } else {
+	            throw new ExcepcionBorrarCuota();
+	        }
+	    }
+	    return "redirect:/admin/cuotas/lista";
+	}
 
 
 }

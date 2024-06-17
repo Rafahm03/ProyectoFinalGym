@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Error al eliminar cuota</title>
+    <!-- Enlace a Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .error-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+        .error-image {
+            max-width: 100%;
+            height: auto;
+        }
+        .back-button {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container error-container">
+        <h1 class="display-4" th:text="${mensajeError}">No se puede eliminar una cuota que tiene planes o socios asociados</h1>
+        <img th:src="@{/img/thanos-imposible.gif}" alt="Error" class="error-image mt-4">
+        
+        <!-- Botón de volver -->
+        <a th:href="@{/admin/socios/lista}" class="btn btn-primary back-button">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M15 8a.5.5 0 0 1-.5.5H2.707l3.147 3.147a.5.5 0 0 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 7.5H14.5A.5.5 0 0 1 15 8z"/>
+            </svg>
+            Volver
+        </a>
+    </div>
+
+    <!-- Enlace a Bootstrap JS y dependencias de Popper.js -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
