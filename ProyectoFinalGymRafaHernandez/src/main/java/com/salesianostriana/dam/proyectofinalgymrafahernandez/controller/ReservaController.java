@@ -21,7 +21,6 @@ import com.salesianostriana.dam.proyectofinalgymrafahernandez.model.ReservaPK;
 import com.salesianostriana.dam.proyectofinalgymrafahernandez.model.Socio;
 import com.salesianostriana.dam.proyectofinalgymrafahernandez.service.ClaseService;
 import com.salesianostriana.dam.proyectofinalgymrafahernandez.service.ReservaService;
-import com.salesianostriana.dam.proyectofinalgymrafahernandez.service.SocioService;
 
 @Controller
 public class ReservaController {
@@ -32,10 +31,7 @@ public class ReservaController {
     @Autowired
     private ReservaService reservaService;
 
-    @Autowired
-    private SocioService socioService;
 
-    // Mostrar las clases colectivas disponibles
     @GetMapping("/clases")
     public String mostrarClases(Model model) {
         model.addAttribute("clases", claseService.findAll());
@@ -51,7 +47,7 @@ public class ReservaController {
             Clase clase = claseOpt.get();
             model.addAttribute("clase", clase);
             Reserva reserva = new Reserva();
-            reserva.setReservaPK(new ReservaPK()); // Inicializar ReservaPK
+            reserva.setReservaPK(new ReservaPK()); 
             model.addAttribute("reserva", reserva);
             return "formReserva";
         } else {
@@ -63,7 +59,7 @@ public class ReservaController {
     // Crear la reserva para la clase seleccionada
     @PostMapping("/reservarclase/submit")
     public String createReserva(@AuthenticationPrincipal Socio socio,
-                                @RequestParam("clase_id") Long clase_id, // Capturar clase_id desde el formulario
+                                @RequestParam("clase_id") Long clase_id,
                                 @RequestParam("fecha_reserva") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime fecha_reserva,
                                 @ModelAttribute("reserva") Reserva reserva, Model model) {
 
@@ -73,7 +69,7 @@ public class ReservaController {
             ReservaPK reservaPK = new ReservaPK();
             reservaPK.setSocio_id(socio.getId());
             reservaPK.setClase_id(clase.getId());
-            reservaPK.setFecha_reserva(fecha_reserva); // Usar la fecha proporcionada por el socio
+            reservaPK.setFecha_reserva(fecha_reserva); // Usar la fecha elegida por el socio
             reserva.setReservaPK(reservaPK);
 
             reserva.setSocio(socio);
@@ -88,7 +84,7 @@ public class ReservaController {
         }
     }
 
-    // Mostrar el panel de reserva de un socio
+ 
     @GetMapping("/panelReserva/{id}")
     public String mostrarPanelReserva(@AuthenticationPrincipal Socio socio, @PathVariable("id") Long id, Model model) {
         model.addAttribute("reservas", reservaService.findBySocio(socio));

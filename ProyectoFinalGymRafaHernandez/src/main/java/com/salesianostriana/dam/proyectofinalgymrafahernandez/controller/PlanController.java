@@ -16,7 +16,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.salesianostriana.dam.proyectofinalgymrafahernandez.excepciones.ExcepcionBorrarPlan;
 import com.salesianostriana.dam.proyectofinalgymrafahernandez.model.Plan;
 import com.salesianostriana.dam.proyectofinalgymrafahernandez.model.Socio;
-import com.salesianostriana.dam.proyectofinalgymrafahernandez.service.CuotaService;
 import com.salesianostriana.dam.proyectofinalgymrafahernandez.service.PlanService;
 import com.salesianostriana.dam.proyectofinalgymrafahernandez.service.SocioService;
 
@@ -25,9 +24,6 @@ public class PlanController {
 
 	@Autowired
 	private PlanService planService;
-	
-	@Autowired
-	private CuotaService cuotaService;
 	
 	@Autowired
 	private SocioService socioService;
@@ -64,7 +60,9 @@ public class PlanController {
 	    
 	    @PostMapping("/admin/planes/buscar")
 	    public String buscarPlanes(@RequestParam("query") String query, RedirectAttributes redirectAttributes) {
-	        redirectAttributes.addAttribute("query", query);
+	    	//permite agregar atributos en este caso el nombre, que serán guardados en el redirect.
+	    	//de esta forma se envia de forma mas efectiva el atributo entre las solicitudes get y post
+	    	redirectAttributes.addAttribute("query", query);
 	        return "redirect:/admin/planes/lista";
 	    }
 
@@ -106,10 +104,11 @@ public class PlanController {
 
 		if (aBorrarOp.isPresent()) {
 			Plan aBorrar = aBorrarOp.get();
-			if (aBorrar.getCuota()==null && aBorrar.getSocios()==null) {
-	            planService.delete(aBorrar);
-	        } else {
+			if (aBorrar.getCuota() != null && aBorrar.getSocios() != null) {
 	            throw new ExcepcionBorrarPlan();
+	        } else {
+	            planService.delete(aBorrar);
+
 	        }
 	    }
 	    return "redirect:/admin/planes/lista";

@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.salesianostriana.dam.proyectofinalgymrafahernandez.model.Clase;
-import com.salesianostriana.dam.proyectofinalgymrafahernandez.model.Cuota;
 
 public interface ClaseRepositorio extends JpaRepository<Clase, Long> {
 

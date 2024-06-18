@@ -42,9 +42,10 @@
 				<p>Apellido: <span th:text="${socio.apellidos}"></span> </p>
 				<p>Email: <span th:text="${socio.gmail}"></span></p>
 				<p>Dirección: <span th:text="${socio.direccion}"></span></p>
+				<p>Inscripción: <span th:text="${socio.inscripcion}"></span> </p>
 				<p>Fecha de alta: <span th:text="${socio.fecha_alta}"></span></p>
-				<p>Cuota Elegida: <span th:if="${socio.cuota != null}" th:text="${socio.cuota.nombre}"></span></p>
-				<p>Plan Elegido: <span th:if="${socio.plan.cuota != null}" th:text="${socio.plan.nombre}"></span></p>
+				<p>Cuota Elegida: <span  th:text="${socio.cuota.nombre}"></span></p>
+				<p>Plan Elegido: <span  th:text="${socio.plan.nombre}"></span></p>
 			</div>
 		</div>
 	</div>

@@ -28,22 +28,27 @@ public class SocioController {
 	    public String listaSocios(@RequestParam(name = "query", required = false) String query, Model model) {
 	        if (query != null && !query.isEmpty()) {
 	            model.addAttribute("socios", socioService.findByNombreYApellidos(query, query));
+	            double totalRecaudado = socioService.calcularTotalInscripciones();
+	            model.addAttribute("totalRecaudado", totalRecaudado);
 	        } else {
 	            model.addAttribute("socios", socioService.findAll());
+	            double totalRecaudado = socioService.calcularTotalInscripciones();
+	            model.addAttribute("totalRecaudado", totalRecaudado);
 	        }
 	        return "socios";
 	    }
 	    
 	    @PostMapping("/admin/socios/buscar")
 	    public String buscarSocios(@RequestParam("query") String query, RedirectAttributes redirectAttributes) {
-	        redirectAttributes.addAttribute("query", query);
+	    	//permite agregar atributos en este caso el nombre, que serán guardados en el redirect.
+	    	//de esta forma se envia de forma mas efectiva el atributo entre las solicitudes get y post
+	    	redirectAttributes.addAttribute("query", query);
 	        return "redirect:/admin/socios/lista";
 	    }
 	        
 	    @GetMapping("/admin/socio/nuevo")
 		public String mostrarFormularioSocio(Model model) {
 			model.addAttribute("socio", new Socio());
-
 			return "formularioSocioAdmin";
 		}
 		
@@ -89,6 +94,7 @@ public class SocioController {
 		    }
 		    return "redirect:/admin/socios/lista";
 		}
+
 
 
 }

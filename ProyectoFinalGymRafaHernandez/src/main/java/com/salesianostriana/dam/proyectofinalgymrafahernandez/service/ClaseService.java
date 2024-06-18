@@ -7,9 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.salesianostriana.dam.proyectofinalgymrafahernandez.model.Clase;
-import com.salesianostriana.dam.proyectofinalgymrafahernandez.model.Cuota;
 import com.salesianostriana.dam.proyectofinalgymrafahernandez.repos.ClaseRepositorio;
-import com.salesianostriana.dam.proyectofinalgymrafahernandez.repos.CuotaRepositorio;
 
 @Service
 public class ClaseService extends BaseServiceImpl<Clase, Long, ClaseRepositorio>{

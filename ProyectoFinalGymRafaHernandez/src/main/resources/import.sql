@@ -15,11 +15,11 @@ INSERT INTO plan (id, nombre, descripcion, precio, cuota_id) VALUES (3, 'Plan Pr
 ALTER SEQUENCE plan_seq RESTART WITH 54;
 
 -- INSERT INTO DE SOCIO
-INSERT INTO socio (id, username, password, admin, nombre, apellidos, gmail, direccion, fecha_alta, plan_id, cuota_id) VALUES (1, 'admin', '{bcrypt}$2a$12$ZHQTnMjgmzUVauuL5Swvt.62M4Dgf68uEvKn73bBmq867CgJ2OJEq', true, 'Rafa', 'Hernández Meléndez', 'rafa@gmail.com', 'C/ Internet Explorer', '2024-06-03', 1, 1);
-INSERT INTO socio (id, username, password, admin, nombre, apellidos, gmail, direccion, fecha_alta, plan_id, cuota_id) VALUES (2, 'user', '{bcrypt}$2a$12$5c6aIfX.993q17DcoxdJjOKK/rZ4CNlQIc3karf/Q.utqtkWd2WWW', false, 'Anonimus', 'Anonimus', 'anonimus@gmail.com', 'C/ por la red', '2008-01-01', 2, 2);
-INSERT INTO socio (id, username, password, admin, nombre, apellidos, gmail, direccion, fecha_alta, plan_id, cuota_id) VALUES (3, 'rafa', '{bcrypt}$2a$12$.whW94BjEoBx.mUXNfeVIeZxCLfs61EVCzE/BQXT7Iumi.lTBVqLC', false, 'Rafa', 'Hernández', 'tuprogramadorfav@gmail.com', 'C/ whitelabelError 404', '2024-07-12', 3, 3);
-INSERT INTO socio (id, username, password, admin, nombre, apellidos, gmail, direccion, fecha_alta, plan_id, cuota_id) VALUES (4, 'edu', '{bcrypt}$2a$12$13ukIN72kcsYpVuXBKl02OZJDZ32895ZyzzX7i/qJ8r8OdUAk5xXK', false, 'Eduardo', 'sisi', 'edu@gmail.com', 'C/ HogWarts', '2022-03-23', 2, 2);
-INSERT INTO socio (id, username, password, admin, nombre, apellidos, gmail, direccion, fecha_alta, plan_id, cuota_id) VALUES (5, 'josel', '{bcrypt}$2a$12$bRultAt1GXSU.LwQYmazrONt3zHeES96ZkQxygd1pFpLDWqTCYzA6', false, 'José Luis', 'nose', 'pikkas@gmai.com', 'C/ El multiverso', '2023-12-04', 1, 1);
+INSERT INTO socio (id, username, password, admin, nombre, apellidos, gmail, direccion, fecha_alta, plan_id, cuota_id, inscripcion) VALUES (1, 'admin', '{bcrypt}$2a$12$ZHQTnMjgmzUVauuL5Swvt.62M4Dgf68uEvKn73bBmq867CgJ2OJEq', true, 'Rafa', 'Hernández Meléndez', 'rafa@gmail.com', 'C/ Internet Explorer', '2022-06-03', 1, 1, 9.99);
+INSERT INTO socio (id, username, password, admin, nombre, apellidos, gmail, direccion, fecha_alta, plan_id, cuota_id, inscripcion) VALUES (2, 'user', '{bcrypt}$2a$12$5c6aIfX.993q17DcoxdJjOKK/rZ4CNlQIc3karf/Q.utqtkWd2WWW', false, 'Anonimus', 'Anonimus', 'anonimus@gmail.com', 'C/ por la red', '2008-01-01', 2, 2, 9.99);
+INSERT INTO socio (id, username, password, admin, nombre, apellidos, gmail, direccion, fecha_alta, plan_id, cuota_id, inscripcion) VALUES (3, 'rafa', '{bcrypt}$2a$12$.whW94BjEoBx.mUXNfeVIeZxCLfs61EVCzE/BQXT7Iumi.lTBVqLC', false, 'Rafa', 'Hernández', 'tuprogramadorfav@gmail.com', 'C/ whitelabelError 404', '2024-07-12', 3, 3, 9.99);
+INSERT INTO socio (id, username, password, admin, nombre, apellidos, gmail, direccion, fecha_alta, plan_id, cuota_id, inscripcion) VALUES (4, 'edu', '{bcrypt}$2a$12$13ukIN72kcsYpVuXBKl02OZJDZ32895ZyzzX7i/qJ8r8OdUAk5xXK', false, 'Eduardo', 'sisi', 'edu@gmail.com', 'C/ HogWarts', '2022-03-23', 2, 2, 9.99);
+INSERT INTO socio (id, username, password, admin, nombre, apellidos, gmail, direccion, fecha_alta, plan_id, cuota_id, inscripcion) VALUES (5, 'josel', '{bcrypt}$2a$12$bRultAt1GXSU.LwQYmazrONt3zHeES96ZkQxygd1pFpLDWqTCYzA6', false, 'José Luis', 'nose', 'pikkas@gmai.com', 'C/ El multiverso', '2023-12-04', 1, 1, 9.99);
 
 ALTER SEQUENCE socio_seq RESTART WITH 56;
 

@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.salesianostriana.dam.proyectofinalgymrafahernandez.model.Cuota;
-import com.salesianostriana.dam.proyectofinalgymrafahernandez.model.Plan;
 import com.salesianostriana.dam.proyectofinalgymrafahernandez.repos.CuotaRepositorio;
 
 @Service

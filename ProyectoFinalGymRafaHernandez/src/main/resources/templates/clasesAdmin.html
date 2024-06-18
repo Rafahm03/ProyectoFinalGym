@@ -6,6 +6,7 @@
 	<title>Clases del Gym</title>
 	<!-- Bootstrap CSS -->
 	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 	<link rel="stylesheet" href="../static/css/socios.css" th:href="@{/css/socios.css}" />
 </head>
 
@@ -49,14 +50,8 @@
 					<td th:text="${clase.nombre}">Nombre</td>
 					<td th:text="${clase.descripcion}">Descripción</td>
 					<td>
-						<a th:href="@{/admin/clase/editar/{id}(id=${clase.id})}"
-							class="btn btn-primary btn-sm botonEditar">
-							<i class="bi bi-pencil-square"></i>
-						</a>
-						<a class="btn btn-danger btn-sm botonBorrar" data-toggle="modal"
-							th:attr="data-target='#removeClase-' + ${clase.id}">
-							<i class="bi bi-trash"></i>
-						</a>
+						<a th:href="@{/admin/clase/editar/{id}(id=${clase.id})}" class="btn btn-primary" width="20%"> <i class="fas fa-pencil-square"></i></a>
+												<a class="btn btn-danger" data-toggle="modal" th:attr="data-target='#removeClase-' + ${clase.id}" width="20%"><i class="fa-solid fa-trash-can"></i></a>
 						<div class="modal fade text-black" th:id="'removeClase-' + ${clase.id}">
 							<div class="modal-dialog remove">
 								<div class="modal-content">

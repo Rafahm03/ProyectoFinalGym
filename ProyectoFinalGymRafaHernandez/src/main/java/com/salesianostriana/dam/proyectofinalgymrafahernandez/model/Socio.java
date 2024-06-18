@@ -37,6 +37,8 @@ public class Socio implements UserDetails {
     private Long id;
 
     private String username, password, nombre, apellidos, gmail, direccion;
+    
+    private double inscripcion;
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate fecha_alta;

@@ -60,7 +60,9 @@ public class CuotaControler {
     
     @PostMapping("/admin/cuotas/buscar")
     public String buscarCuotas(@RequestParam("query") String query, RedirectAttributes redirectAttributes) {
-        redirectAttributes.addAttribute("query", query);
+    	//permite agregar atributos en este caso el nombre, que serán guardados en el redirect.
+    	//de esta forma se envia de forma mas efectiva el atributo entre las solicitudes get y post
+    	redirectAttributes.addAttribute("query", query);
         return "redirect:/admin/cuotas/lista";
     }
 
@@ -102,10 +104,11 @@ public class CuotaControler {
 
 		if (aBorrarOp.isPresent()) {
 			Cuota aBorrar = aBorrarOp.get();
-			if (aBorrar.getSocios()==null && aBorrar.getPlan()==null ) {
-	            cuotaService.delete(aBorrar);
-	        } else {
+			if (aBorrar.getSocios() != null && aBorrar.getPlan() != null ) {
 	            throw new ExcepcionBorrarCuota();
+	        } else {
+	            cuotaService.delete(aBorrar);
+
 	        }
 	    }
 	    return "redirect:/admin/cuotas/lista";
