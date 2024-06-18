@@ -35,6 +35,8 @@ public class ClaseController {
     @PostMapping("/admin/clases/buscar")
     public String buscarClases(@RequestParam("query") String query, RedirectAttributes redirectAttributes) {
         redirectAttributes.addAttribute("query", query);
+        //El redirectAttributes almacena en un flashmap que utiliza internamente la sesión del usuario
+        // para pasar estos datos a la siguiente redirección y elimina los datos que se utilizan.
         return "redirect:/admin/clases/lista";
     }
     

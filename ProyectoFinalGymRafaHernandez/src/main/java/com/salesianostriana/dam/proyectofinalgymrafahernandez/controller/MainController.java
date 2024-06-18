@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.salesianostriana.dam.proyectofinalgymrafahernandez.model.Socio;
@@ -24,13 +25,13 @@ public class MainController {
 	    }
 	 
 	 @GetMapping("/")
-	 public String mostrarindice( Model model) {
+	 public String mostrarindice(Model model) {
 		 return "index";	
 		}
 	
 	 
 	 @GetMapping("/registro/socio/nuevo")
-		public String mostrarFormularioRegistroCliente(Model model) {
+		public String mostrarFormularioRegistroSocio(Model model) {
 			model.addAttribute("socio", new Socio());
 
 			return "formSocio";

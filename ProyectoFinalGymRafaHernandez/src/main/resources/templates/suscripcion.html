@@ -34,34 +34,27 @@
 		</div>
 	</header>
 	<div class="container mt-5">
-		<h1 class="text-center mb-4">Perfil del Socio</h1>
+		<h1 class="text-center mb-4">Suscripción del Socio</h1>
 		<div class="card">
 			<div class="card-body">
 				<h3 class="card-title">Información del Socio</h3>
 				<p>Nombre: <span th:text="${socio.nombre}"></span></p>
 				<p>Apellido: <span th:text="${socio.apellidos}"></span> </p>
 				<p>Email: <span th:text="${socio.gmail}"></span></p>
-				<p>Dirección: <span th:text="${socio.direccion}"></span></p>
-				<p>Fecha de alta: <span th:text="${socio.fecha_alta}"></span></p>
-				<p>Cuota Elegida: <span th:if="${socio.cuota != null}" th:text="${socio.cuota.nombre}"></span></p>
-				<p>Plan Elegido: <span th:if="${socio.plan.cuota != null}" th:text="${socio.plan.nombre}"></span></p>
+				<hr>
+				<h4>Cuota Elegida</h4>
+				<p th:text="${cuota}"></p>
+				<hr>
+				<h4>Plan Elegido</h4>
+				<p th:text="${plan}"></p>
+				<hr>
+				<h3 class="text-center">Costo Total de Suscripción:</h3>
+				<h2 class="text-center">
+					<span th:if="${socio.plan != null && socio.plan.cuota != null}"
+						th:text="${#numbers.formatDecimal(socio.cuota.precio + socio.plan.precio, 2, 'POINT', 3, 'COMMA')}"></span>€</h2>
 			</div>
 		</div>
 	</div>
-	<br>
-	<div class="container mt-5">
-	        <h1 class="text-center mb-4">Tus Reservas</h1>
-	
-	            <h3>Reservas: </h3>
-	            <ul class="list-group">
-	                <li class="list-group-item" th:each="reserva : ${socio.reservas}">
-	                    <p><strong>Clase colectiva:</strong> <span th:text="${reserva.clase.nombre}">Nombre de la Clase</span></p>
-	                    <p><strong>Fecha:</strong> <span th:text="${#temporals.format(reserva.fechaReserva, 'yyyy-MM-dd HH:mm')}">Fecha de la Reserva</span></p>
-	                </li>
-	            </ul>
-
-	    </div>
-		<br>
 	<!-- Footer -->
 		<footer class="bg-dark text-white py-4">
 			<div class="container">

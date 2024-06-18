@@ -1,8 +1,10 @@
 package com.salesianostriana.dam.proyectofinalgymrafahernandez.controller;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,45 +18,49 @@ import com.salesianostriana.dam.proyectofinalgymrafahernandez.service.CuotaServi
 import com.salesianostriana.dam.proyectofinalgymrafahernandez.service.PlanService;
 import com.salesianostriana.dam.proyectofinalgymrafahernandez.service.SocioService;
 
-
 @Controller
 public class PerfilController {
 
 	@Autowired
-    private SocioService socioService;
-	
+	private SocioService socioService;
+
 	@Autowired
 	private PlanService planService;
-	
+
 	@Autowired
 	private CuotaService cuotaService;
-	
+
 	@GetMapping("/suscripcion/{id}")
 	public String mostrarSuscripcion(@PathVariable("id") Long id, Model model) {
-	    Optional<Socio> socioOpt = socioService.findById(id);
+		Optional<Socio> socioOpt = socioService.findById(id);
 
-	    if (socioOpt.isPresent()) {
-	        Socio socio = socioOpt.get();
-	        Cuota cuota = socio.getCuota();
-	        Plan plan = socio.getPlan();
+		if (socioOpt.isPresent()) {
+			Socio socio = socioOpt.get();
+			Cuota cuota = socio.getCuota();
+			Plan plan = socio.getPlan();
 
-	        String cuotaInfo = (cuota != null) ? 
-	            "Cuota: " + cuota.getNombre() + " -> Precio: " + cuota.getPrecio() :
-	            "No tiene cuota asignada.";
+			String cuotaInfo = (cuota != null) ? "Cuota: " + cuota.getNombre() + " -> Precio: " + cuota.getPrecio()
+					: "No tiene cuota asignada.";
 
-	        String planInfo = (plan != null) ? 
-	            "Plan: " + plan.getNombre() + " -> Precio: " + plan.getPrecio() :
-	            "No tiene plan asignado.";
+			String planInfo = (plan != null) ? "Plan: " + plan.getNombre() + " -> Precio: " + plan.getPrecio()
+					: "No tiene plan asignado.";
 
-	        model.addAttribute("socio", socio);
-	        model.addAttribute("cuota", cuotaInfo);
-	        model.addAttribute("plan", planInfo);   
+			model.addAttribute("socio", socio);
+			model.addAttribute("cuota", cuotaInfo);
+			model.addAttribute("plan", planInfo);
 
-	        return "perfil"; 
-	    } else {
-	        model.addAttribute("error", "Socio no encontrado.");
-	        return "error"; 
-	    }
+			return "suscripcion";
+		} else {
+			model.addAttribute("error", "Socio no encontrado.");
+			return "error";
+		}
+	}
+
+	@GetMapping("/miperfil")
+	public String mostrarPerfilSocio(@AuthenticationPrincipal Socio socio, Model model) {
+			model.addAttribute("socio", socio);
+			socio.getReservas();
+			return "perfil";
 	}
 
 }

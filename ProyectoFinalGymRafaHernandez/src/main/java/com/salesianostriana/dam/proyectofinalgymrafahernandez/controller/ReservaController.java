@@ -35,14 +35,14 @@ public class ReservaController {
     @Autowired
     private SocioService socioService;
 
-    // Mostrar las clases disponibles
+    // Mostrar las clases colectivas disponibles
     @GetMapping("/clases")
     public String mostrarClases(Model model) {
         model.addAttribute("clases", claseService.findAll());
         return "clases";
     }
 
-    // Mostrar el formulario de reserva para una clase específica
+    // Mostrar el formulario de reserva para una clase elegida por el socio
     @GetMapping("/reservarclase/{clase_id}")
     public String mostrarFormularioReserva(@AuthenticationPrincipal Socio socio, Model model, @PathVariable("clase_id") Long clase_id) {
         model.addAttribute("socio", socio);

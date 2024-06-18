@@ -80,10 +80,11 @@ public class SocioController {
 		    
 		    if (aBorrarOp.isPresent()) {
 		        Socio aBorrar = aBorrarOp.get();
-		        if (aBorrar.getCuota() == null && aBorrar.getPlan() == null && aBorrar.getReservas()==null) {
-		            socioService.delete(aBorrar);
-		        } else {
+		        if (aBorrar.getCuota() != null && aBorrar.getPlan() !=null && aBorrar.getReservas()!=null) {
 		            throw new ExcepcionBorrarSocio();
+		        } else {
+		            socioService.delete(aBorrar);
+
 		        }
 		    }
 		    return "redirect:/admin/socios/lista";
