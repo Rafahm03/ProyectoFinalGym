@@ -30,10 +30,23 @@ public class SocioController {
 	            model.addAttribute("socios", socioService.findByNombreYApellidos(query, query));
 	            double totalRecaudado = socioService.calcularTotalInscripciones();
 	            model.addAttribute("totalRecaudado", totalRecaudado);
+	            Socio socio = socioService.obtenerSocioConMasReservas();
+	            if (socio != null) {
+	                int numReservas = socioService.contarNumReservasBySocio(socio);
+	                model.addAttribute("socio", socio);
+	                model.addAttribute("numReservas", numReservas);
+	            }
 	        } else {
 	            model.addAttribute("socios", socioService.findAll());
 	            double totalRecaudado = socioService.calcularTotalInscripciones();
 	            model.addAttribute("totalRecaudado", totalRecaudado);
+	            model.addAttribute("socio", socioService.obtenerSocioConMasReservas());
+	            Socio socio = socioService.obtenerSocioConMasReservas();
+	            if (socio != null) {
+	                int numReservas = socioService.contarNumReservasBySocio(socio);
+	                model.addAttribute("socio", socio);
+	                model.addAttribute("numReservas", numReservas);
+	            }
 	        }
 	        return "socios";
 	    }

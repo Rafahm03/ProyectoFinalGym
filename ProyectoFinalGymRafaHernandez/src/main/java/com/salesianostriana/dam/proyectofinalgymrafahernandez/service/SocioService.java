@@ -31,15 +31,19 @@ public class SocioService extends BaseServiceImpl<Socio, Long, SocioRepositorio>
 	    socioRepositorio.save(socio);
 	}
 	
-	public int countNumReservasBySocio(Socio socio) {
-		return socioRepositorio.countNumReservasBySocio(socio);
-	}
+	 public int contarNumReservasBySocio(Socio socio) {
+	        return socioRepositorio.contarNumReservasBySocio(socio);
+	    }
+
+	    public Socio obtenerSocioConMasReservas() {
+	        return socioRepositorio.findSocioConMasReservas();
+	    }
+	
 	
 	public List<Socio> findByNombreYApellidos(String nombre, String apellidos) {
 		return socioRepositorio.findByNombreContainingIgnoreCaseOrApellidosContainingIgnoreCase(nombre, apellidos);
 	}
 	
-
     public double calcularDescuentoTotal(Socio socio, double precioCuota, double precioPlan) {
         double totalOriginal = precioCuota + precioPlan;
         if (esSocioFiel(socio)) {
@@ -68,13 +72,6 @@ public class SocioService extends BaseServiceImpl<Socio, Long, SocioRepositorio>
     }
     
         
-    /*public double aplicarDescuentoPorMuchasVentas() {
-        List<Socio> socios = socioRepositorio.findAll();
-
-        for (Socio socio : socios) {
-        	socio.cou
-        }
-
-    }*/
+   
     
    }

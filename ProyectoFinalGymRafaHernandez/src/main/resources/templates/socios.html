@@ -80,7 +80,7 @@
 		</table>
 		
 		<br>
-		<h3>DATOS DE VANTAS Y SOCIOS</h3>
+		<h3>DATOS VARIOS</h3>
 		
 		<div class="container mt-5">
 		       <h4 class="text-center mb-4">Total Recaudado por Inscripciones</h4>
@@ -88,10 +88,20 @@
 		           <div class="card-body">
 		               <h3 class="card-title">Total Recaudado:</h3>
 		               <h2 class="text-center">
-		                   <span th:text="${#numbers.formatDecimal(totalRecaudado, 2, 'POINT', 3, 'COMMA')}"></span>€
+		                   <span th:text="${#numbers.formatDecimal(totalRecaudado, 2, 'POINT', 2, 'COMMA')}"></span>€
 		               </h2>
 		           </div>
 		       </div>
+			   <br>
+			   <h4 class="text-center mb-4">El socio con más reservas es: </h4>
+			   		       <div class="card">
+			   		           <div class="card-body">
+			   		               <h3 class="card-title">Socio: <span th:text="${socio.nombre}"></span> </h3>
+			   		               <h2 class="text-center">
+			   		                   Tiene: <span th:text="${numReservas}"></span> Reservas
+			   		               </h2>
+			   		           </div>
+			   		       </div>
 		   </div>
 	</main>
 

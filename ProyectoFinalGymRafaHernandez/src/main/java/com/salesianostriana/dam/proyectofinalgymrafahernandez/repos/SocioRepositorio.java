@@ -17,6 +17,10 @@ public interface SocioRepositorio
 	Optional<Socio> findFirstByUsername(String username);
 	
 	@Query("select count(r) from Reserva r where r.socio = ?1")
-	int countNumReservasBySocio(Socio socio);
+	int contarNumReservasBySocio(Socio socio);
+	
+	@Query("SELECT s FROM Socio s WHERE s.id = (SELECT r.socio.id FROM Reserva r GROUP BY r.socio.id ORDER BY COUNT(r.id) DESC LIMIT 1)")
+    Socio findSocioConMasReservas();
+
 
 }
