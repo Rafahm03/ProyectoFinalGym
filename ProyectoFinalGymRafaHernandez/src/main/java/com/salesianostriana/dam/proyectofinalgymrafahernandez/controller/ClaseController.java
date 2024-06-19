@@ -35,7 +35,7 @@ public class ClaseController {
     @PostMapping("/admin/clases/buscar")
     public String buscarClases(@RequestParam("query") String query, RedirectAttributes redirectAttributes) {
     	//permite agregar atributos en este caso el nombre, que serán guardados en el redirect.
-    	//de esta forma se envia de forma mas efectiva el atributo entre las solicitudes get y post
+    	//de esta forma se envia de forma mas efectiva el atributo entre las solicitudes get y post.
     	redirectAttributes.addAttribute("query", query);
         return "redirect:/admin/clases/lista";
     }

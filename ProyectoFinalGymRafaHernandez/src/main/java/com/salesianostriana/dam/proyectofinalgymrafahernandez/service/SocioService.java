@@ -20,6 +20,7 @@ public class SocioService extends BaseServiceImpl<Socio, Long, SocioRepositorio>
 	private PasswordEncoder passwordEncoder;
 
 	
+	
     private static final double DESCUENTO_POR_FIDELIDAD = 0.10; //un descuento para los socios que tengan mas de un anio :)
 
 	
@@ -28,6 +29,10 @@ public class SocioService extends BaseServiceImpl<Socio, Long, SocioRepositorio>
 	    socio.setPassword(passwordEncoder.encode(socio.getPassword()));
 	    
 	    socioRepositorio.save(socio);
+	}
+	
+	public int countNumReservasBySocio(Socio socio) {
+		return socioRepositorio.countNumReservasBySocio(socio);
 	}
 	
 	public List<Socio> findByNombreYApellidos(String nombre, String apellidos) {
@@ -61,4 +66,15 @@ public class SocioService extends BaseServiceImpl<Socio, Long, SocioRepositorio>
 
         return total;
     }
-}
+    
+        
+    /*public double aplicarDescuentoPorMuchasVentas() {
+        List<Socio> socios = socioRepositorio.findAll();
+
+        for (Socio socio : socios) {
+        	socio.cou
+        }
+
+    }*/
+    
+   }

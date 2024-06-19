@@ -30,14 +30,37 @@ public class PerfilController {
 	            Cuota cuota = socio.getCuota();
 	            Plan plan = socio.getPlan();
 
-	            double precioCuota = (cuota != null) ? cuota.getPrecio() : 0.0;
-	            double precioPlan = (plan != null) ? plan.getPrecio() : 0.0;
+	            double precioCuota;
+	            if (cuota != null) {
+	                precioCuota = cuota.getPrecio();
+	            } else {
+	                precioCuota = 0.0;
+	            }
 
+	            double precioPlan;
+	            if (plan != null) {
+	                precioPlan = plan.getPrecio();
+	            } else {
+	                precioPlan = 0.0;
+	            }
+	            
 	            double precioFinalConDescuento = socioService.calcularDescuentoTotal(socio, precioCuota, precioPlan);
 	            boolean descuentoFidelidad = socioService.esSocioFiel(socio);
+	            
+	            String cuotaInfo;
+	            
+	            if (cuota != null) {
+	                cuotaInfo = "Cuota: " + cuota.getNombre() + " -> Precio: " + precioCuota;
+	            } else {
+	                cuotaInfo = "No tiene cuota asignada.";
+	            }
 
-	            String cuotaInfo = (cuota != null) ? "Cuota: " + cuota.getNombre() + " -> Precio: " + precioCuota : "No tiene cuota asignada.";
-	            String planInfo = (plan != null) ? "Plan: " + plan.getNombre() + " -> Precio: " + precioPlan : "No tiene plan asignado.";
+	            String planInfo;
+	            if (plan != null) {
+	                planInfo = "Plan: " + plan.getNombre() + " -> Precio: " + precioPlan;
+	            } else {
+	                planInfo = "No tiene plan asignado.";
+	            }
 
 	            model.addAttribute("socio", socio);
 	            model.addAttribute("cuota", cuotaInfo);
