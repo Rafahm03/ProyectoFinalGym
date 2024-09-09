@@ -2,7 +2,7 @@
 ![LogoGym](https://github.com/Rafahm03/ProyectoFinalGym/assets/114216419/9f46a057-31d5-4e02-8b3e-e981f5198689)
 
 # HARDWORK
-### HUMILDE PÁGINA WEB DE UN GYM 👊🏻🏋🏻‍♂️😤🥊🏋🏻‍♀️
+### HUMILDE PÁGINA WEB DE UN GYM 🏋🏻‍♂️
 
 ## Introducción
 
